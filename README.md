@@ -5,4 +5,4 @@ Deze repository is door **Maliq Rizqi Ananda** uitsluitend voor educatieve doele
 
 ## Website Portofolio
 
-![Home](https://github.com/mxl1qr/portofolio-website/blob/main/preview/preview-home.png)
+![Home](https://github.com/mxl1qr/portofolio-website/blob/main/preview/home_preview2.png)
