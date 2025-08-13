@@ -15,8 +15,7 @@
     --bg-color: #0E3149;
     --snd-bg-color: #262B40;
     --text-color: #fff;
-    --main-color: #ebdf3c;
-    --main-color-2: #FF9B00;
+    --main-color: #FF9B00;
 }
 
 html{
@@ -354,7 +353,7 @@ span {
 
 .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, #0E3149, #EBDF3C);
+    background: linear-gradient(90deg, #0E3149, #FF9B00);
     border-radius: 50px;
     transition: width 2s ease;
 }
@@ -382,7 +381,7 @@ span {
 
 .soft-skill-item i {
     font-size: 3rem;
-    color: #EBDF3C;
+    color: #FF9B00;
     margin-right: 1.5rem;
 }
 
