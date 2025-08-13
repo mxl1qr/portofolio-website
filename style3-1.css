@@ -41,7 +41,7 @@ body {
     cursor: pointer;
     text-decoration: none;
     position: relative;
-}
+}z
 
 .logo::after {
     content: '';
