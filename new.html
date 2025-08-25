@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="ini-id">Hello World</p>
+    <button onclick="klik()">Click</button>
+    <script>
+        console.log("Hello from the console!");
+
+        function klik() {
+            alert("Button clicked!");
+        }
+        
+
+
+        let number1 = 10;
+        //Logika
+        //AND
+        if(number1 == 9 && true){
+            console.log("Ini adalah AND");
+        } else if (number1 == 11){
+            console.log("AND bekerja");
+        }else {
+            console.log("AND tidak bekerja");
+        }
+
+        //OR
+        if(false || false){
+            console.log("Ini adalah OR");
+        }
+
+        switch (number1) {
+            case 10:
+                console.log("Number is 10");
+                break;
+            default:
+                console.log("Number isn't 10");
+        }
+        
+        const nama = ["a", "b", "c", "d"];
+        
+        //For Loop
+        for (let i = 0; i < nama.length; i++) {
+            console.log(nama[i]);
+        }
+
+        const namaJurusan = ["RPL","DKV", "BR", "MP"];
+        
+        //For Loop
+        for (let i = 0; i < namaJurusan.length; i++) {
+            console.log(namaJurusan[i]);
+        }
+
+        // While
+        while (number1 < 20) {
+            console.log(number1);
+            number1 += 1;
+        }
+        
+        // Tag name
+        const p = document.getElementsByTagName("p");
+        console.log(p);
+
+        //Class name
+        const kelas = document.getElementsByClassName("class");
+        console.log(kelas);
+
+        const iniId = document.getElementById("ini-id");
+        console.log(iniId);
+
+        function changeToBlack() {
+            iniId.style.color = "black";
+        }
+
+        function changeToAqua() {
+            iniId.style.color = "aqua";
+        }
+
+        
+    </script>
+</body>
+</html>

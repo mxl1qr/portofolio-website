@@ -11,6 +11,12 @@
     <title>Personal Portofolio Website</title>
     <link rel="stylesheet" href="style2.css">
     <link rel="icon" href="/content/images/favicon.png">
+
+    <!--- MAIN-JS -->
+    <script src="script1.js" defer></script>
+
+    <!-- TYPED JS -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 <body>
     <!--- HEADER DESIGN -->
@@ -39,7 +45,7 @@
         <div class="home-content">
             <h3>Howdy Strangers!</h3>
             <h1>I'm Maliq Rizqi Ananda</h1>
-            <h3>And I'm a <span>Front-End Developer</span></h3>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
             <p>"I craft beautiful, responsive websites that bring ideas to life. With a keen eye for design and clean code, I create digital experiences that users love and businesses trust."</p>
             <div class="social-media">
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -99,9 +105,8 @@
                     </svg>
                     <span>Kali Linux</span>
                 </div>
+            </div>
         </div>
-
-        
     </section>
     
     <!--- SKILLS SECTION DESIGN -->
@@ -201,6 +206,249 @@
             </div>
         </div>
     </section>
+
+    <!--- PROJECTS SECTION DESIGN -->
+    <section class="projects" id="projects">
+        <h2 class="heading">My <span>Projects</span></h2>
+        <p>Here are some of my recent projects that showcase my skills and creativity</p>
+
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>A modern and responsive portfolio website built with HTML5, CSS3, and JavaScript. Features smooth animations, dark theme, and mobile-first design approach.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Responsive Design</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://mxl1qr.github.io/portofolio-website/" class="project-btn btn-demo">Live Demo</a>
+                        <a href="https://github.com/mxl1qr/portofolio-website" class="project-btn btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="project-content">
+                    <h3>E-Commerce Landing Page</h3>
+                    <p>A beautiful and modern e-commerce landing page with product showcase, testimonials, and contact form. Optimized for conversion and user experience.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-btn btn-demo">Live Demo</a>
+                        <a href="https://github.com/mxl1qr" class="project-btn btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Calculator App</h3>
+                    <p>A fully functional calculator application built with C# and Windows Forms. Features basic arithmetic operations with a clean and intuitive interface.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Windows Forms</span>
+                        <span class="tech-tag">.NET Framework</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-btn btn-demo">Download</a>
+                        <a href="https://github.com/mxl1qr" class="project-btn btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Cybersecurity Tools Collection</h3>
+                    <p>A collection of Python scripts for basic cybersecurity tasks including network scanning, password strength checking, and basic penetration testing tools.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Kali Linux</span>
+                        <span class="tech-tag">Network Security</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-btn btn-demo">Documentation</a>
+                        <a href="https://github.com/mxl1qr" class="project-btn btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- EXPERIENCE SECTION DESIGN -->
+    <section class="experience" id="experience">
+        <h2 class="heading">My <span>Experience</span></h2>
+        <p>My educational background and professional journey in software development</p>
+
+        <div class="experience-container">
+            <div class="education">
+                <h3>Education</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - Present</div>
+                    <div class="timeline-title">Software Engineering</div>
+                    <div class="timeline-subtitle">SMK Negeri 40 Jakarta</div>
+                    <div class="timeline-description">
+                        Currently studying Software Engineering with focus on web development, mobile applications, and database management. Learning programming languages including C#, Python, HTML, CSS, and JavaScript.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - 2023</div>
+                    <div class="timeline-title">Junior High School</div>
+                    <div class="timeline-subtitle">SMP Negeri Jakarta</div>
+                    <div class="timeline-description">
+                        Completed junior high school education with excellent grades. Developed interest in technology and computer science during this period.
+                    </div>
+                </div>
+
+                <div class="certifications">
+                    <h4>Certifications & Courses</h4>
+                    <ul class="cert-list">
+                        <li>Web Development Fundamentals - Online Course (2024)</li>
+                        <li>Introduction to Cybersecurity - Cisco Networking Academy (2024)</li>
+                        <li>HTML & CSS Certification - FreeCodeCamp (2023)</li>
+                        <li>JavaScript Basics - SoloLearn (2023)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="work-experience">
+                <h3>Experience</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Present</div>
+                    <div class="timeline-title">Freelance Web Developer</div>
+                    <div class="timeline-subtitle">Self-Employed</div>
+                    <div class="timeline-description">
+                        Working on small web development projects for local businesses and personal clients. Creating responsive websites, landing pages, and basic web applications using HTML, CSS, and JavaScript.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-title">Web Development Intern</div>
+                    <div class="timeline-subtitle">Local Tech Startup</div>
+                    <div class="timeline-description">
+                        Completed a 3-month internship focusing on frontend development. Assisted in building user interfaces, fixing bugs, and implementing responsive design features.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - 2024</div>
+                    <div class="timeline-title">Student Projects</div>
+                    <div class="timeline-subtitle">SMK Negeri 40 Jakarta</div>
+                    <div class="timeline-description">
+                        Participated in various school projects including building a library management system, creating responsive web designs, and developing simple desktop applications using C#.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- CONTACT SECTION DESIGN -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <p>Let's work together! Get in touch for collaborations or just to say hello</p>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>Jakarta, Indonesia</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>maliq.rizqi@example.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+62 xxx-xxxx-xxxx</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <div>
+                        <h4>LinkedIn</h4>
+                        <p>linkedin.com/in/maliq-rizqi-93792a304</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!--- FOOTER DESIGN -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>&copy; 2024 Maliq Rizqi Ananda. All rights reserved.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/maliq-rizqi-93792a304"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/mxl1qr"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

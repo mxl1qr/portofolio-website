@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--- FONT-AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- MAIN-CSS -->
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/content/images/favicon.png">
+
+    <!--- MAIN-JS -->
+    <script src="script.js" defer></script>
+
+    <!-- TYPED JS -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+<body>
+    <!--- HEADER DESIGN -->
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <nav class="lang">
+            <a href="#" class="active">EN</a>
+            <a href="nl-index.html">NL</a>
+            <a href="#">ID</a>
+        </nav>
+    </header>
+
+    <!--- HOME SECTION DESIGN -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Howdy Strangers!</h3>
+            <h1>I'm Maliq Rizqi Ananda</h1>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
+            <p>"I craft beautiful, responsive websites that bring ideas to life. With a keen eye for design and clean code, I create digital experiences that users love and businesses trust."</p>
+            <div class="social-media">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/maliq-rizqi-93792a304"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/mxl1qr"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <a href="#" class="btn">Download CV</a>
+        </div>
+
+        <div class="home-img">
+            <img src="content/images/upscalemedia-transformed.png" alt="">
+        </div>
+    </section>
+
+    <!--- ABOUT SECTION DESIGN -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <div class="circle">
+            <img src="content/images/2salam-literasi.png" alt="img">
+            </div>
+        </div>
+
+        <div class="about-content">
+            <h2 class="heading">ABOUT <span>Me</span></h2>
+            <h3>Frontend Developer</h3>
+            <p><b>Hi, I'm Maliq Rizqi Ananda</b> — a 16-year-old Software Engineering student from Jakarta, Indonesia, passionate about crafting beautiful and responsive websites that provide exceptional user experiences. As part of my studies, I've been exploring modern web technologies and design principles, aiming to transform creative ideas into clean, functional, and intuitive interfaces. Beyond web development, I'm also deeply interested in the world of Cybersecurity, especially in tackling various cybersecurity challenges to sharpen my problem-solving and analytical skills.</p>
+            <a href="#" class="btn">Read More</a>
+
+            <div class="tools-container">
+            <h4>Tools that I use</h4>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <i class="fa-brands fa-square-figma"></i>
+                    <span>Figma</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-code"></i>
+                    <span>VS Code</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-database"></i>
+                    <span>Laragon</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </div>
+                <div class="tool-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0,0,256,256">
+                        <g fill="#0e3149" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M46.125,38.868c-0.192,-0.815 -0.481,-1.618 -0.919,-2.346c-0.871,-1.466 -2.199,-2.585 -3.594,-3.489c-1.409,-0.901 -2.916,-1.624 -4.458,-2.219c-2.953,-1.141 -2.81,-1.103 -4.803,-1.814c-4.416,-1.574 -6.868,-3.914 -7.022,-6.452c-0.074,-1.229 1.126,-5.234 6.074,-4.282c1.175,0.226 2.287,0.543 3.382,1.037c1.009,0.456 3.954,1.884 4.986,3.917v0c0.078,0.897 0.394,1.244 1.656,1.84c0.949,0.448 1.907,0.935 1.993,2.039c0.005,0.06 0.051,0.109 0.131,0.121c0.052,0 0.1,-0.031 0.121,-0.081c0.182,-0.439 0.915,-0.989 1.461,-0.839c0.063,0.016 0.119,-0.009 0.148,-0.061c0.03,-0.052 0.02,-0.116 -0.021,-0.158l-0.863,-0.854c-0.311,-0.31 -0.651,-0.721 -0.939,-1.249c-0.078,-0.142 -0.145,-0.282 -0.204,-0.417c-0.038,-0.094 -0.076,-0.187 -0.114,-0.281c-0.724,-1.895 -2.073,-3.925 -3.465,-5.24c-0.756,-0.727 -1.588,-1.367 -2.475,-1.913c-0.891,-0.538 -1.819,-1.016 -2.833,-1.302l-0.074,0.256c0.947,0.327 1.833,0.849 2.662,1.419c0.828,0.579 1.593,1.243 2.273,1.979c0.971,1.032 1.736,2.23 2.282,3.512l-1.993,-2.477l0.055,0.858l-1.633,-1.841l0.101,0.862l-1.586,-1.279l0.136,0.584c-0.357,-0.236 -3.525,-1.496 -5.106,-2.09c-1.581,-0.594 -4.705,-3.524 -3.804,-7.232c0,0 -1.477,-0.574 -2.535,-0.965c-1.043,-0.376 -2.09,-0.717 -3.14,-1.046c-2.1,-0.658 -4.212,-1.258 -6.335,-1.818c-2.123,-0.557 -4.26,-1.062 -6.409,-1.508c-2.15,-0.441 -4.312,-0.834 -6.5,-1.053l-0.039,0.333c2.153,0.331 4.278,0.833 6.387,1.382c2.108,0.555 4.202,1.166 6.279,1.829c2.076,0.665 4.139,1.37 6.177,2.128c1.018,0.379 2.033,0.769 3.027,1.188c0.211,0.088 0.426,0.18 0.641,0.272c-1.224,-0.241 -2.448,-0.432 -3.673,-0.591c-2.211,-0.281 -4.424,-0.458 -6.639,-0.558c-2.214,-0.1 -4.43,-0.116 -6.642,-0.034c-2.211,0.086 -4.423,0.259 -6.605,0.633l0.043,0.304c2.18,-0.224 4.375,-0.246 6.563,-0.183c2.189,0.067 4.374,0.231 6.547,0.477c2.172,0.246 4.335,0.567 6.469,0.986c1.316,0.261 2.624,0.564 3.903,0.921c-1.011,-0.101 -2.017,-0.127 -3.014,-0.115c-1.977,0.03 -3.926,0.247 -5.848,0.574c-1.922,0.33 -3.818,0.773 -5.675,1.346c-1.851,0.579 -3.681,1.267 -5.361,2.249l0.116,0.208c1.72,-0.828 3.568,-1.358 5.426,-1.779c1.862,-0.414 3.751,-0.698 5.644,-0.868c1.891,-0.168 3.792,-0.224 5.663,-0.101c1.664,0.11 3.317,0.363 4.83,0.849v0c0.065,0.445 0.366,1.346 0.511,1.796v0c-4.255,1.957 -4.794,5.477 -4.446,7.365c0.409,2.214 2.011,3.902 3.904,4.995c1.567,0.891 3.168,1.459 4.726,2.047c1.555,0.583 3.095,1.143 4.467,1.918c1.352,0.747 2.476,1.901 3.391,3.21c1.837,2.638 2.572,5.964 2.792,9.245l0.365,-0.01c0.008,-3.323 -0.47,-6.802 -2.252,-9.812c-0.588,-0.986 -1.314,-1.921 -2.171,-2.733c0.992,0.384 1.961,0.818 2.887,1.333c1.373,0.779 2.667,1.749 3.548,3.051c0.444,0.647 0.755,1.375 0.983,2.133c0.202,0.767 0.295,1.565 0.329,2.371h0.312c0.011,-0.823 -0.035,-1.655 -0.201,-2.477z"></path></g></g>
+                    </svg>
+                    <span>Kali Linux</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--- SKILLS SECTION DESIGN -->
+    <section class="skills" id="skills">
+       <h2 class="heading">My <span>Skills</span></h2>
+       <p>Here are my technical and soft skills that help me create amazing web experiences</p>
+
+        <div class="skills-container">
+            <div class="hard-skills skills-category">
+                <h3>Hard Skills</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>HTML5</span>
+                        <span class="percentage">75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>CSS3</span>
+                        <span class="percentage">60%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>C#</span>
+                        <span class="percentage">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Python</span>
+                        <span class="percentage">35%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 35%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="soft-skills skills-category">
+                <h3>Soft Skills</h3>
+                
+                <div class="soft-skills-grid">
+                    <div class="soft-skill-item">
+                        <i class="fas fa-users"></i>
+                        <span>Teamwork</span>
+                    </div>
+                    
+                    <div class="soft-skill-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Communication</span>
+                    </div>
+                    
+                    <div class="soft-skill-item">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Problem Solving</span>
+                    </div>
+                    
+                    <div class="soft-skill-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Creativity</span>
+                    </div>
+                    
+                    <div class="soft-skill-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Time Management</span>
+                    </div>
+                    
+                    <div class="soft-skill-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Adaptability</span>
+                    </div>
+                    
+                    <div class="soft-skill-item">
+                        <i class="fas fa-handshake"></i>
+                        <span>Leadership</span>
+                    </div>
+                    
+                    <div class="soft-skill-item">
+                        <i class="fas fa-eye"></i>
+                        <span>Attention to Detail</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- PROJECTS SECTION DESIGN -->
+    <section class="projects" id="projects">
+        <h2 class="heading">My <span>Projects</span></h2>
+        <p>Here are some of my recent projects that showcase my skills and creativity</p>
+
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>A modern and responsive portfolio website built with HTML5, CSS3, and JavaScript. Features smooth animations, dark theme, and mobile-first design approach.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Responsive Design</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-btn btn-demo">Live Demo</a>
+                        <a href="https://github.com/mxl1qr" class="project-btn btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="project-content">
+                    <h3>E-Commerce Landing Page</h3>
+                    <p>A beautiful and modern e-commerce landing page with product showcase, testimonials, and contact form. Optimized for conversion and user experience.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-btn btn-demo">Live Demo</a>
+                        <a href="https://github.com/mxl1qr" class="project-btn btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Calculator App</h3>
+                    <p>A fully functional calculator application built with C# and Windows Forms. Features basic arithmetic operations with a clean and intuitive interface.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Windows Forms</span>
+                        <span class="tech-tag">.NET Framework</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-btn btn-demo">Download</a>
+                        <a href="https://github.com/mxl1qr" class="project-btn btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Cybersecurity Tools Collection</h3>
+                    <p>A collection of Python scripts for basic cybersecurity tasks including network scanning, password strength checking, and basic penetration testing tools.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Kali Linux</span>
+                        <span class="tech-tag">Network Security</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-btn btn-demo">Documentation</a>
+                        <a href="https://github.com/mxl1qr" class="project-btn btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- EXPERIENCE SECTION DESIGN -->
+    <section class="experience" id="experience">
+        <h2 class="heading">My <span>Experience</span></h2>
+        <p>My educational background and professional journey in software development</p>
+
+        <div class="experience-container">
+            <div class="education">
+                <h3>Education</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - Present</div>
+                    <div class="timeline-title">Software Engineering</div>
+                    <div class="timeline-subtitle">SMK Negeri 40 Jakarta</div>
+                    <div class="timeline-description">
+                        Currently studying Software Engineering with focus on web development, mobile applications, and database management. Learning programming languages including C#, Python, HTML, CSS, and JavaScript.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - 2023</div>
+                    <div class="timeline-title">Junior High School</div>
+                    <div class="timeline-subtitle">SMP Negeri Jakarta</div>
+                    <div class="timeline-description">
+                        Completed junior high school education with excellent grades. Developed interest in technology and computer science during this period.
+                    </div>
+                </div>
+
+                <div class="certifications">
+                    <h4>Certifications & Courses</h4>
+                    <ul class="cert-list">
+                        <li>Web Development Fundamentals - Online Course (2024)</li>
+                        <li>Introduction to Cybersecurity - Cisco Networking Academy (2024)</li>
+                        <li>HTML & CSS Certification - FreeCodeCamp (2023)</li>
+                        <li>JavaScript Basics - SoloLearn (2023)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="work-experience">
+                <h3>Experience</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Present</div>
+                    <div class="timeline-title">Freelance Web Developer</div>
+                    <div class="timeline-subtitle">Self-Employed</div>
+                    <div class="timeline-description">
+                        Working on small web development projects for local businesses and personal clients. Creating responsive websites, landing pages, and basic web applications using HTML, CSS, and JavaScript.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-title">Web Development Intern</div>
+                    <div class="timeline-subtitle">Local Tech Startup</div>
+                    <div class="timeline-description">
+                        Completed a 3-month internship focusing on frontend development. Assisted in building user interfaces, fixing bugs, and implementing responsive design features.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - 2024</div>
+                    <div class="timeline-title">Student Projects</div>
+                    <div class="timeline-subtitle">SMK Negeri 40 Jakarta</div>
+                    <div class="timeline-description">
+                        Participated in various school projects including building a library management system, creating responsive web designs, and developing simple desktop applications using C#.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- CONTACT SECTION DESIGN -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <p>Let's work together! Get in touch for collaborations or just to say hello</p>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>Jakarta, Indonesia</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>maliq.rizqi@example.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+62 xxx-xxxx-xxxx</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <div>
+                        <h4>LinkedIn</h4>
+                        <p>linkedin.com/in/maliq-rizqi-93792a304</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!--- FOOTER DESIGN -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>&copy; 2024 Maliq Rizqi Ananda. All rights reserved.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/maliq-rizqi-93792a304"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/mxl1qr"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
