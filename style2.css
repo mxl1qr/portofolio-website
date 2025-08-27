@@ -698,6 +698,10 @@ span {
     width: 4rem;
 }
 
+.contact-item a {
+    color: var(--text-color)
+}
+
 .contact-item div h4 {
     font-size: 1.8rem;
     color: white;
