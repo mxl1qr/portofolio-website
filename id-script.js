@@ -77,6 +77,8 @@ const typed = new Typed('.multiple-text', {
     loop: true
 });
 
+
+
 // Contact Form Handler
 document.querySelector('.contact-form form').addEventListener('submit', function(e) {
     e.preventDefault();
