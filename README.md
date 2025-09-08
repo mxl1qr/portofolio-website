@@ -4,6 +4,5 @@ Deze repository is door **Maliq Rizqi Ananda** uitsluitend voor educatieve doele
 [Link Preview](https://mxl1qr.github.io/portofolio-website/)
 
 ## Website Portofolio
-v1(using style2.css)
 
 ![Home](https://github.com/mxl1qr/portofolio-website/blob/main/preview/home_preview.png)
