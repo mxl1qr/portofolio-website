@@ -1,5 +1,5 @@
 # Maliq Rizqi Ananda's Portofolio
-Deze repository is door **Maliq Rizqi Ananda** uitsluitend voor educatieve doeleinden gemaakt en mag niet voor commerciële doeleinden worden gebruikt.
+This repository was created by **Maliq Rizqi Ananda** for educational purposes only and may not be used for commercial purposes.
 
 [Link Preview](https://mxl1qr.github.io/portofolio-website/)
 
