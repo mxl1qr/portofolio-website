@@ -1,0 +1,440 @@
+<style>
+    /* Experience Styles */
+    /*.experience-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .experience-card {
+        background: white;
+        border: 2px solid #e2e8f0;
+        border-radius: 15px;
+        padding: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .experience-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-color: var(--primaryIconColor);
+    }
+
+    .experience-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .experience-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 8px;
+    }
+
+    .experience-provider {
+        color: var(--primaryIconColor);
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .experience-date {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+
+    .experience-description {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }*/
+
+    .certificate-btn {
+        border: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+          
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 30px;
+        border-radius: 20px;
+        width: 80%;
+        max-width: 600px;
+        position: relative;
+        animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .close:hover {
+        color: var(--primaryIconColorHover);
+    }
+
+    .certificate-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .certificate-container h2 {
+        color: #2d3748;
+        margin-bottom: 20px;
+    }
+
+    .certificate-image {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /*.section {
+        background: white;
+        border-radius: 20px;
+        padding: 50px 40px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .section-title {
+        padding-top: 45px ;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #2d3748;
+    }
+
+    .section-description {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 35px;
+        line-height: 1.7;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    @media (max-width: 768px) {
+        .section {
+            padding: 40px 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+        }
+        
+        
+    }
+
+    @media (max-width: 480px) {
+        .section {
+            padding: 30px 20px;
+        }
+        
+        .tools-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .tool-card {
+            padding: 20px 10px;
+        }
+        
+        .tool-logo {
+            width: 35px;
+            height: 35px;
+        }
+    } */
+</style>
+
+
+<!-- Experience Section -->
+     <section id="experiance">
+        <div class="section fade-in">
+            <div class="section-header">
+                <div class="icon">📋</div>
+                <h2 class="section-title">Experience</h2>
+            </div>
+            <p class="section-description">Pelatihan dan sertifikasi yang pernah saya ikuti:</p>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <button class="certificate-btn" onclick="showCertificate('fullstack')">
+                        📜 Lihat Sertifikat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="cert-list">
+        <li class = "certificate-btn" onclick="showCertificate('fullstack')">Role Of SOC : The World Is Under Attack! Are We Ready? - Jadi Hacker (2025)</li>
+        <li>Born To Defend - Jadi Hacker (2025)</li>
+        <li>Samsung Innovation Campus Batch 6 Logic Test - Hacktiv8 (2024)</li>
+        <li>Virtual Bootcamp Batch 1 Digital Business and Cyber Security - UNSIA x UNAS (2024)</li>
+        <!--<li>JavaScript Basics - SoloLearn (2023)</li>-->
+    </ul>
+
+     <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCertificate()">&times;</span>
+            <div class="certificate-container">
+                <h2>Sertifikat</h2>
+                <div id="certificateContent"></div>
+            </div>
+        </div>
+    </div>
+     </section>
+
+    <script>
+        /*
+        // Animate elements on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const toolCards = document.querySelectorAll('.tool-card');
+            const skillPills = document.querySelectorAll('.skill-pill');
+            
+            // Animate tool cards
+            toolCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            // Animate skill pills
+            skillPills.forEach((pill, index) => {
+                pill.style.opacity = '0';
+                pill.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    pill.style.transition = 'all 0.5s ease';
+                    pill.style.opacity = '1';
+                    pill.style.transform = 'translateY(0)';
+                }, 600 + (index * 100));
+            });
+        });
+
+        // Add click interactions
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const toolName = this.querySelector('.tool-name').textContent;
+                showNotification(`Tool yang dipilih: ${toolName}`);
+            });
+        });
+
+        document.querySelectorAll('.skill-pill').forEach(skill => {
+            skill.addEventListener('click', function() {
+                const skillName = this.textContent;
+                showNotification(`Keahlian yang dipilih: ${skillName}`);
+            });
+        });
+
+        
+        // Notification function
+        function showNotification(message) {
+            // Remove existing notifications
+            const existingNotif = document.querySelector('.notification');
+            if (existingNotif) {
+                existingNotif.remove();
+            }
+
+            // Create notification
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 50px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                transform: translateX(350px);
+                transition: transform 0.3s ease;
+                font-weight: 600;
+                max-width: 300px;
+                font-size: 0.9rem;
+            `;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(350px)';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 3000);
+        }*/
+
+        // Certificate functions
+        function showCertificate(type) {
+            const modal = document.getElementById('certificateModal');
+            const content = document.getElementById('certificateContent');
+            
+            let certificateData = {
+                'fullstack': {
+                    title: 'Telkom Indonesia',
+                    provider: 'myDigiLearn',
+                    image: './content/images/SOLSTICE.png'
+                },
+                'uiux': {
+                    title: 'WorkshopUI/UX Design ',
+                    provider: 'Prodi Ilmu Komputer UNJ',
+                    image: './sertifikat1.jpg'
+                },
+                'javascript': {
+                    title: 'Data Science',
+                    provider: 'Prodi Ilmu Komputer UNJ',
+                    image: './sertifikat3.jpg'
+                }
+            };
+            
+            const cert = certificateData[type];
+            content.innerHTML = `
+                <h3>${cert.title}</h3>
+                <p style="color: #667eea; margin-bottom: 20px;">${cert.provider}</p>
+                <img src="${cert.image}" alt="Certificate" class="certificate-image">
+                <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">
+                    <em>Klik gambar sertifikat untuk memperbesar atau download</em>
+                </p>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeCertificate() {
+            const modal = document.getElementById('certificateModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('certificateModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        /*// Add project view functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Existing animations...
+            const toolCards = document.querySelectorAll('.tool-card');
+            const skillPills = document.querySelectorAll('.skill-pill');
+            
+            // Animate tool cards
+            toolCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            // Animate skill pills
+            skillPills.forEach((pill, index) => {
+                pill.style.opacity = '0';
+                pill.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    pill.style.transition = 'all 0.5s ease';
+                    pill.style.opacity = '1';
+                    pill.style.transform = 'translateY(0)';
+                }, 600 + (index * 100));
+            });
+
+            // Add project view buttons functionality
+            document.querySelectorAll('.view-project-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const projectCard = this.closest('.project-card');
+                    const projectTitle = projectCard.querySelector('.project-title').textContent;
+                    showNotification(`Membuka project: ${projectTitle}`);
+                });
+            });
+        });*/
+    </script>
