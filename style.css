@@ -123,6 +123,10 @@ span {
     color: var(--main-color);
 }
 
+#dynamic-age, #current-year {
+    color: inherit;
+}
+
 .home-content h1 {
     font-size: 5.6rem;
     font-weight: 700;
@@ -620,34 +624,63 @@ span {
     line-height: 1.6;
 }
 
-.certifications {
-    margin-top: 4rem;
+.certifications-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+    width: 100%;
 }
 
-.certifications h4 {
-    font-size: 2.2rem;
+.certifications-container h4 {
+    font-size: 2.8rem;
+    font-weight: 600;
     color: var(--main-color);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
 .cert-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
     list-style: none;
+    padding: 0;
 }
 
 .cert-list li {
-    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
     color: #ccc;
-    margin-bottom: 1rem;
-    padding-left: 2rem;
     position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
 }
 
 .cert-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
+    content: '\f0a3';
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', 'FontAwesome';
+    font-weight: 900;
+    position: static;
     color: var(--main-color);
-    font-weight: bold;
+    margin-right: 1.5rem;
+    font-size: 2rem;
+}
+
+.cert-list li:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-color: var(--main-color);
+    color: var(--text-color);
 }
 
 /* ===== CONTACT SECTION ===== */
@@ -924,4 +957,105 @@ html {
 .projects-container {
     grid-template-columns: 1fr;
 }
+}
+
+/* ===== CERTIFICATE MODAL ===== */
+.cert-item {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cert-item:hover {
+    color: var(--main-color);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba(14, 49, 73, 0.85);
+    backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal-content {
+    display: block;
+    max-width: 90%;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(235, 223, 60, 0.4);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#certCaption {
+    display: block;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    color: var(--main-color);
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.close-modal {
+    position: absolute;
+    top: 3rem;
+    right: 4rem;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 10001;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--main-color);
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content {
+        max-width: 95%;
+    }
+    .close-modal {
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+        font-size: 3rem;
+    }
 }

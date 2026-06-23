@@ -48,7 +48,7 @@ const observerOptions = {
     rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const skillBars = entry.target.querySelectorAll('.skill-progress');
@@ -80,15 +80,15 @@ const typed = new Typed('.multiple-text', {
 
 
 // Contact Form Handler
-document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+document.querySelector('.contact-form form').addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     // Get form data
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-    
+
     // Simple validation
     if (name && email && subject && message) {
         alert('Thank you for your message! I will get back to you soon.');
@@ -99,7 +99,7 @@ document.querySelector('.contact-form form').addEventListener('submit', function
 });
 
 // Projects Animation
-const projectObserver = new IntersectionObserver(function(entries) {
+const projectObserver = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -119,7 +119,7 @@ document.querySelectorAll('.project-card').forEach(card => {
 });
 
 // Timeline Animation
-const timelineObserver = new IntersectionObserver(function(entries) {
+const timelineObserver = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -149,7 +149,7 @@ document.querySelectorAll('.navbar a').forEach(link => {
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset;
     const header = document.querySelector('.header');
-    
+
     if (scrollTop > 100) {
         header.style.background = 'rgba(14, 49, 73, 0.95)';
         header.style.backdropFilter = 'blur(10px)';
@@ -160,7 +160,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Smooth reveal animation for sections
-const sectionObserver = new IntersectionObserver(function(entries) {
+const sectionObserver = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -182,11 +182,11 @@ document.querySelectorAll('.about, .skills, .projects, .experience, .contact').f
 
 // Tool items hover animation
 document.querySelectorAll('.tool-item').forEach(item => {
-    item.addEventListener('mouseenter', function() {
+    item.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-10px) scale(1.05)';
     });
-    
-    item.addEventListener('mouseleave', function() {
+
+    item.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
@@ -199,7 +199,7 @@ window.addEventListener('load', () => {
         <div class="spinner"></div>
         <p>Loading Portfolio...</p>
     `;
-    
+
     // Add loader styles dynamically
     const loaderStyles = `
         .loader {
@@ -239,13 +239,13 @@ window.addEventListener('load', () => {
             font-weight: 600;
         }
     `;
-    
+
     const styleSheet = document.createElement('style');
     styleSheet.textContent = loaderStyles;
     document.head.appendChild(styleSheet);
-    
+
     document.body.appendChild(loader);
-    
+
     // Remove loader after 2 seconds
     setTimeout(() => {
         loader.style.opacity = '0';
@@ -269,7 +269,7 @@ function createParticles() {
         overflow: hidden;
         z-index: -1;
     `;
-    
+
     for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
         particle.style.cssText = `
@@ -285,10 +285,10 @@ function createParticles() {
         `;
         particlesContainer.appendChild(particle);
     }
-    
+
     document.querySelector('.home').style.position = 'relative';
     document.querySelector('.home').appendChild(particlesContainer);
-    
+
     // Add floating animation
     const floatingAnimation = `
         @keyframes float {
@@ -296,7 +296,7 @@ function createParticles() {
             50% { transform: translateY(-20px) rotate(180deg); }
         }
     `;
-    
+
     const animationStyle = document.createElement('style');
     animationStyle.textContent = floatingAnimation;
     document.head.appendChild(animationStyle);
@@ -304,3 +304,69 @@ function createParticles() {
 
 // Initialize particles effect
 createParticles();
+
+// ===== CERTIFICATE MODAL LOGIC =====
+const modal = document.getElementById("certModal");
+const modalImg = document.getElementById("certImage");
+const captionText = document.getElementById("certCaption");
+const closeModal = document.querySelector(".close-modal");
+const certItems = document.querySelectorAll(".cert-item");
+
+if (modal && modalImg && captionText && closeModal) {
+    certItems.forEach(item => {
+        item.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.getAttribute("data-img");
+            captionText.innerHTML = this.innerHTML;
+
+            // disable body scroll
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    });
+
+    // Close when clicking outside image
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+}
+
+// ==========================================
+// DYNAMIC AGE CALCULATION
+// ==========================================
+function calculateAge(birthDate) {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+
+    // If birth month hasn't occurred yet this year, or it's the birth month but the day hasn't occurred
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+// UBAH TANGGAL LAHIR DI SINI (Format: YYYY-MM-DD)
+const myBirthDate = '2009-03-04';
+
+const dynamicAgeElements = document.querySelectorAll('#dynamic-age');
+if (dynamicAgeElements.length > 0) {
+    const age = calculateAge(myBirthDate);
+    dynamicAgeElements.forEach(el => el.textContent = age);
+}
+
+// ==========================================
+// DYNAMIC FOOTER YEAR
+// ==========================================
+const currentYearElement = document.getElementById('current-year');
+if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+}

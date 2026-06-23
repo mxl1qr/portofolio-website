@@ -48,7 +48,7 @@ const observerOptions = {
     rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const skillBars = entry.target.querySelectorAll('.skill-progress');
@@ -80,15 +80,15 @@ const typed = new Typed('.multiple-text', {
 
 
 // Contact Form Handler
-document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+document.querySelector('.contact-form form').addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     // Get form data
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-    
+
     // Simple validation
     if (name && email && subject && message) {
         alert('Thank you for your message! I will get back to you soon.');
@@ -99,7 +99,7 @@ document.querySelector('.contact-form form').addEventListener('submit', function
 });
 
 // Projects Animation
-const projectObserver = new IntersectionObserver(function(entries) {
+const projectObserver = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -119,7 +119,7 @@ document.querySelectorAll('.project-card').forEach(card => {
 });
 
 // Timeline Animation
-const timelineObserver = new IntersectionObserver(function(entries) {
+const timelineObserver = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -149,7 +149,7 @@ document.querySelectorAll('.navbar a').forEach(link => {
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset;
     const header = document.querySelector('.header');
-    
+
     if (scrollTop > 100) {
         header.style.background = 'rgba(14, 49, 73, 0.95)';
         header.style.backdropFilter = 'blur(10px)';
@@ -160,7 +160,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Smooth reveal animation for sections
-const sectionObserver = new IntersectionObserver(function(entries) {
+const sectionObserver = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -182,11 +182,11 @@ document.querySelectorAll('.about, .skills, .projects, .experience, .contact').f
 
 // Tool items hover animation
 document.querySelectorAll('.tool-item').forEach(item => {
-    item.addEventListener('mouseenter', function() {
+    item.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-10px) scale(1.05)';
     });
-    
-    item.addEventListener('mouseleave', function() {
+
+    item.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
@@ -199,7 +199,7 @@ window.addEventListener('load', () => {
         <div class="spinner"></div>
         <p>Loading Portfolio...</p>
     `;
-    
+
     // Add loader styles dynamically
     const loaderStyles = `
         .loader {
@@ -239,13 +239,13 @@ window.addEventListener('load', () => {
             font-weight: 600;
         }
     `;
-    
+
     const styleSheet = document.createElement('style');
     styleSheet.textContent = loaderStyles;
     document.head.appendChild(styleSheet);
-    
+
     document.body.appendChild(loader);
-    
+
     // Remove loader after 2 seconds
     setTimeout(() => {
         loader.style.opacity = '0';
@@ -269,7 +269,7 @@ function createParticles() {
         overflow: hidden;
         z-index: -1;
     `;
-    
+
     for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
         particle.style.cssText = `
@@ -285,10 +285,10 @@ function createParticles() {
         `;
         particlesContainer.appendChild(particle);
     }
-    
+
     document.querySelector('.home').style.position = 'relative';
     document.querySelector('.home').appendChild(particlesContainer);
-    
+
     // Add floating animation
     const floatingAnimation = `
         @keyframes float {
@@ -296,7 +296,7 @@ function createParticles() {
             50% { transform: translateY(-20px) rotate(180deg); }
         }
     `;
-    
+
     const animationStyle = document.createElement('style');
     animationStyle.textContent = floatingAnimation;
     document.head.appendChild(animationStyle);
@@ -306,175 +306,241 @@ function createParticles() {
 createParticles();
 
 // ⚠️ IMPORTANT: Replace this URL with your Google Apps Script Web App URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSY6t1D8SSPvybHDAnqi_FF_7lcDnoO8NCCQGcJnKPKP4-9fNHRm1RMA6JwN0lQ0lL/exec';
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSY6t1D8SSPvybHDAnqi_FF_7lcDnoO8NCCQGcJnKPKP4-9fNHRm1RMA6JwN0lQ0lL/exec';
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-        const submitBtn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('btnText');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const successMessage = document.getElementById('successMessage');
-        const errorMessage = document.getElementById('errorMessage');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
 
-        // Hide previous messages
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'none';
+    // Hide previous messages
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
 
-        // Show loading state
-        submitBtn.disabled = true;
-        btnText.textContent = 'Sending...';
-        loadingSpinner.style.display = 'inline-block';
+    // Show loading state
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending...';
+    loadingSpinner.style.display = 'inline-block';
 
-        // Collect form data
-        const formData = new FormData(this);
-        const data = {
-            fullName: formData.get('fullName'),
-            email: formData.get('email'),
-            subject: formData.get('subject'),
-            message: formData.get('message'),
-            timestamp: new Date().toLocaleString('en-US', {
-                timeZone: 'Asia/Jakarta',
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            })
-        };
+    // Collect form data
+    const formData = new FormData(this);
+    const data = {
+        fullName: formData.get('fullName'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+        timestamp: new Date().toLocaleString('en-US', {
+            timeZone: 'Asia/Jakarta',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        })
+    };
 
-        try {
-            // Check if Google Script URL is configured
-            if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
-                throw new Error('Google Apps Script URL not configured');
-            }
-
-            // Send to Google Sheets via Apps Script
-            const response = await fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                // Success
-                successMessage.style.display = 'block';
-                this.reset();
-                
-                // Scroll to success message
-                successMessage.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                throw new Error('Server responded with error');
-            }
-
-        } catch (error) {
-            console.error('Error:', error);
-            errorMessage.style.display = 'block';
-            errorMessage.scrollIntoView({ behavior: 'smooth' });
+    try {
+        // Check if Google Script URL is configured
+        if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+            throw new Error('Google Apps Script URL not configured');
         }
 
-        // Reset button state
-        submitBtn.disabled = false;
-        btnText.textContent = 'Send Message';
-        loadingSpinner.style.display = 'none';
-    });
-
-    // Enhanced form validation with real-time feedback
-    const inputs = document.querySelectorAll('.form-group input, .form-group textarea');
-    inputs.forEach(input => {
-        input.addEventListener('blur', function() {
-            validateField(this);
+        // Send to Google Sheets via Apps Script
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
         });
 
-        input.addEventListener('input', function() {
-            if (this.classList.contains('error')) {
-                validateField(this);
-            }
-        });
-    });
+        if (response.ok) {
+            // Success
+            successMessage.style.display = 'block';
+            this.reset();
 
-    function validateField(field) {
-        const value = field.value.trim();
-        let isValid = true;
-        let errorMessage = '';
-
-        // Remove existing error styling
-        field.classList.remove('error');
-        
-        // Check required fields
-        if (field.hasAttribute('required') && !value) {
-            isValid = false;
-            errorMessage = 'This field is required';
-        }
-
-        // Email validation
-        if (field.type === 'email' && value && !isValidEmail(value)) {
-            isValid = false;
-            errorMessage = 'Please enter a valid email address';
-        }
-
-        // Apply error styling
-        if (!isValid) {
-            field.classList.add('error');
-            field.style.borderColor = '#dc3545';
-            showFieldError(field, errorMessage);
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth' });
         } else {
-            field.style.borderColor = '#28a745';
-            hideFieldError(field);
+            throw new Error('Server responded with error');
         }
 
-        return isValid;
+    } catch (error) {
+        console.error('Error:', error);
+        errorMessage.style.display = 'block';
+        errorMessage.scrollIntoView({ behavior: 'smooth' });
     }
 
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+    // Reset button state
+    submitBtn.disabled = false;
+    btnText.textContent = 'Send Message';
+    loadingSpinner.style.display = 'none';
+});
+
+// Enhanced form validation with real-time feedback
+const inputs = document.querySelectorAll('.form-group input, .form-group textarea');
+inputs.forEach(input => {
+    input.addEventListener('blur', function () {
+        validateField(this);
+    });
+
+    input.addEventListener('input', function () {
+        if (this.classList.contains('error')) {
+            validateField(this);
+        }
+    });
+});
+
+function validateField(field) {
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+
+    // Remove existing error styling
+    field.classList.remove('error');
+
+    // Check required fields
+    if (field.hasAttribute('required') && !value) {
+        isValid = false;
+        errorMessage = 'This field is required';
     }
 
-    function showFieldError(field, message) {
-        hideFieldError(field); // Remove existing error
-        
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'field-error';
-        errorDiv.style.cssText = `
+    // Email validation
+    if (field.type === 'email' && value && !isValidEmail(value)) {
+        isValid = false;
+        errorMessage = 'Please enter a valid email address';
+    }
+
+    // Apply error styling
+    if (!isValid) {
+        field.classList.add('error');
+        field.style.borderColor = '#dc3545';
+        showFieldError(field, errorMessage);
+    } else {
+        field.style.borderColor = '#28a745';
+        hideFieldError(field);
+    }
+
+    return isValid;
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function showFieldError(field, message) {
+    hideFieldError(field); // Remove existing error
+
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.style.cssText = `
             color: #dc3545;
             font-size: 12px;
             margin-top: 5px;
             font-weight: 500;
         `;
-        errorDiv.textContent = message;
-        
-        field.parentNode.appendChild(errorDiv);
-    }
+    errorDiv.textContent = message;
 
-    function hideFieldError(field) {
-        const existingError = field.parentNode.querySelector('.field-error');
-        if (existingError) {
-            existingError.remove();
+    field.parentNode.appendChild(errorDiv);
+}
+
+function hideFieldError(field) {
+    const existingError = field.parentNode.querySelector('.field-error');
+    if (existingError) {
+        existingError.remove();
+    }
+}
+
+// Smooth animations on scroll
+const skillobserverOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const skillobserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
-    }
-
-    // Smooth animations on scroll
-    const skillobserverOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const skillobserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe form groups for animation
-    document.querySelectorAll('.form-group').forEach((group, index) => {
-        group.style.opacity = '0';
-        group.style.transform = 'translateY(20px)';
-        group.style.transition = `all 0.6s ease ${index * 0.1}s`;
-        observer.observe(group);
     });
+}, observerOptions);
+
+// Observe form groups for animation
+document.querySelectorAll('.form-group').forEach((group, index) => {
+    group.style.opacity = '0';
+    group.style.transform = 'translateY(20px)';
+    group.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    skillobserver.observe(group);
+});
+
+// ===== CERTIFICATE MODAL LOGIC =====
+const modal = document.getElementById("certModal");
+const modalImg = document.getElementById("certImage");
+const captionText = document.getElementById("certCaption");
+const closeModal = document.querySelector(".close-modal");
+const certItems = document.querySelectorAll(".cert-item");
+
+if (modal && modalImg && captionText && closeModal) {
+    certItems.forEach(item => {
+        item.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.getAttribute("data-img");
+            captionText.innerHTML = this.innerHTML;
+
+            // disable body scroll
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    });
+
+    // Close when clicking outside image
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+}
+
+// ==========================================
+// DYNAMIC AGE CALCULATION
+// ==========================================
+function calculateAge(birthDate) {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+
+    // If birth month hasn't occurred yet this year, or it's the birth month but the day hasn't occurred
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+// UBAH TANGGAL LAHIR DI SINI (Format: YYYY-MM-DD)
+const myBirthDate = '2009-03-04';
+
+const dynamicAgeElements = document.querySelectorAll('#dynamic-age');
+if (dynamicAgeElements.length > 0) {
+    const age = calculateAge(myBirthDate);
+    dynamicAgeElements.forEach(el => el.textContent = age);
+}
+
+// ==========================================
+// DYNAMIC FOOTER YEAR
+// ==========================================
+const currentYearElement = document.getElementById('current-year');
+if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+}
