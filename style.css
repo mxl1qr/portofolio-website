@@ -44,7 +44,14 @@ section {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    gap: 1rem;
 }
+
+/* Logo di kiri paling jauh, menu-icon di kanan paling jauh */
+.logo { order: 1; margin-right: auto; }
+.navbar { order: 2; }
+.lang { order: 3; }
+#menu-icon { order: 4; }
 
 .logo {
     font-size: 2.5rem;
@@ -102,6 +109,40 @@ section {
     font-size: 3.6rem;
     color: var(--text-color);
     display: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* ===== LANG MOBILE (di dalam dropdown navbar) ===== */
+.lang-mobile {
+    display: none; /* disembunyikan di desktop */
+    align-items: center;
+    gap: 1.2rem;
+    margin: 1rem 0 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.lang-mobile span {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.lang-mobile a {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 0.4rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    margin: 0;
+}
+
+.lang-mobile a:hover,
+.lang-mobile a.active {
+    color: var(--main-color);
+    background: rgba(235, 223, 60, 0.1);
 }
 
 .home {
@@ -912,8 +953,26 @@ html {
 }
 
 @media (max-width: 768px) {
+html {
+    font-size: 50%;
+}
+
+section {
+    padding: 8rem 6% 3rem;
+}
+
 #menu-icon {
     display: block;
+}
+
+/* Sembunyikan lang switcher desktop di mobile */
+.lang {
+    display: none !important;
+}
+
+/* Tampilkan lang-mobile di dalam dropdown */
+.lang-mobile {
+    display: flex;
 }
 
 .navbar {
@@ -921,10 +980,10 @@ html {
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 1rem 9%;
+    padding: 1rem 9% 0.5rem;
     background: var(--bg-color);
-    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
     display: none;
     flex-direction: column;
 }
@@ -932,30 +991,179 @@ html {
 .navbar a {
     display: block;
     font-size: 2rem;
-    margin: 3rem 0;
+    margin: 2.5rem 0;
 }
 
+/* ===== HOME ===== */
 .home {
     flex-direction: column-reverse;
-    gap: 3rem;
+    gap: 2rem;
+    padding-top: 10rem;
+}
+
+.home-content h1 {
+    font-size: 4rem;
+}
+
+.home-content h3 {
+    font-size: 2.4rem;
+}
+
+.home-content p {
+    font-size: 1.5rem;
 }
 
 .home-img img {
-    width: 70vw;
+    width: 65vw;
 }
 
+/* ===== ABOUT ===== */
 .about {
     flex-direction: column;
     text-align: center;
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.about-img .circle {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    margin-right: auto; /* reset margin-right desktop */
+}
+
+.about-content {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.about-content h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.about-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    font-size: 1.5rem;
+    margin: 1.2rem 0 1.8rem;
+    text-align: left;
+}
+
+.tools-container {
+    margin-top: 2.5rem;
+}
+
+.tools-container h4 {
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Tools grid: 2 kolom di mobile */
+.tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+}
+
+.tool-item {
+    padding: 1.5rem 1rem;
+}
+
+/* ===== SKILLS ===== */
+.skills p {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
 }
 
 .skills-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
+}
+
+.hard-skills, .soft-skills {
+    padding: 3rem 2rem;
+}
+
+.soft-skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* ===== PROJECTS ===== */
+.projects p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
 }
 
 .projects-container {
     grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+/* ===== EXPERIENCE ===== */
+.experience p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+}
+
+.experience-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.education, .work-experience {
+    padding: 3rem 2rem;
+}
+
+.certifications-container {
+    padding: 3rem 2rem;
+}
+
+.cert-list {
+    grid-template-columns: 1fr;
+}
+
+/* ===== CONTACT ===== */
+.contact p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+}
+
+.contact-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    padding: 3rem 2rem;
+}
+
+.contact-form {
+    padding: 3rem 2rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 1.4rem;
+    font-size: 1.6rem;
+}
+
+/* ===== FOOTER ===== */
+.footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
 }
 }
 
