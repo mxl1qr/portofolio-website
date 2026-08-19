@@ -70,7 +70,7 @@ if (skillsSection) {
 
 // Typed.js Initialization
 const typed = new Typed('.multiple-text', {
-    strings: ['Frontend Developer', 'Web Designer', 'Student @ JKT VS40'],
+    strings: ['Frontend Developer', 'Web Designer', 'Siswa @ SMKN 40 Jakarta'],
     typeSpeed: 70,
     backSpeed: 50,
     backDelay: 1000,
