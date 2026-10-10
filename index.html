@@ -4,543 +4,1232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maliq Rizqi Ananda — Frontend Developer & Cybersecurity Explorer</title>
+    <meta name="description"
+        content="Portfolio of Maliq Rizqi Ananda, a Software Engineering student from SMKN 40 Jakarta building modern, responsive web experiences and exploring cybersecurity.">
+    <meta name="author" content="Maliq Rizqi Ananda">
+    <meta name="theme-color" content="#f7f4ed">
 
-    <!--- FONT-AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Open Graph & Social Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Maliq Rizqi Ananda — Portfolio">
+    <meta property="og:description"
+        content="Frontend developer & cybersecurity explorer from Jakarta. Discover projects, achievements, and experiences.">
+    <meta property="og:image" content="content/images/upscalemedia-transformed.png">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <!-- MAIN-CSS -->
-    <title>Personal Portfolio Website</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="content/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style5.css">
 
-    <!--- MAIN-JS -->
-    <script src="script.js" defer></script>
+    <!-- Pre-paint Theme Detection (Avoids light/dark flash) -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (saved === 'dark' || (!saved && prefersDark)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch (e) { }
+        })();
+    </script>
 
-    <!-- TYPED JS -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Maliq Rizqi Ananda",
+        "jobTitle": "Frontend Developer & Software Engineering Student",
+        "affiliation": {
+            "@type": "EducationalOrganization",
+            "name": "SMK Negeri 40 Jakarta"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jakarta",
+            "addressCountry": "Indonesia"
+        },
+        "sameAs": [
+            "https://github.com/mxl1qr",
+            "https://www.linkedin.com/in/maliq-rizqi-ananda-84a82038a",
+            "https://g.dev/malriz"
+        ]
+    }
+    </script>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+    <script src="i18n.js" defer></script>
 </head>
 
 <body>
-    <!--- HEADER DESIGN -->
-    <header class="header">
-        <a href="#" class="logo">Portfolio</a>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
+    <!-- ============================================================
+         1. SYMMETRIC FLOATING ISLAND NAVBAR (from localhost:5173)
+         ============================================================ -->
+    <header class="island-header" id="island-header">
+        <div class="nav-container">
+            <div class="nav-pill">
+                <!-- Left: Brand Monogram (Minimalist & Balanced) -->
+                <div class="nav-brand-group">
+                    <a href="#home" class="brand" aria-label="Maliq Rizqi Ananda homepage"><span class="brand-bracket">[
+                        </span><span class="brand-name">MR</span><span class="brand-dot">.</span><span
+                            class="brand-bracket"> ]</span></a>
+                </div>
 
-            <!-- Language switcher khusus mobile, di dalam dropdown -->
-            <div class="lang-mobile">
-                <span>Language:</span>
-                <a href="#" class="active">EN</a>
-                <a href="id-index.html">ID</a>
+                <!-- Center: Dead-Center Navigation Links -->
+                <nav class="nav-links" id="desktop-nav" aria-label="Primary Navigation">
+                    <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+                    <a href="#achievements" class="nav-link" data-i18n="nav.achievements">Achievements</a>
+                    <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
+                    <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
+                    <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+                    <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+                    <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
+                </nav>
+
+                <!-- Right: Symmetrical Actions (Language + Theme + Contact) -->
+                <div class="nav-actions">
+                    <!-- Circular Language Switcher (Matches Theme Button) -->
+                    <button class="btn-icon lang-toggle-btn" id="lang-toggle" type="button" aria-label="Toggle language"
+                        title="Switch Language (EN/ID)">
+                        <span class="lang-code" id="lang-code">EN</span>
+                    </button>
+
+                    <button class="btn-icon theme-toggle-btn" id="theme-toggle" type="button" aria-label="Toggle theme"
+                        title="Toggle theme">
+                        <!-- Icon Sun (Mode Gelap -> klik untuk Terang) -->
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2"></path>
+                            <path d="M12 20v2"></path>
+                            <path d="m4.93 4.93 1.41 1.41"></path>
+                            <path d="m17.66 17.66 1.41 1.41"></path>
+                            <path d="M2 12h2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="m6.34 17.66-1.41 1.41"></path>
+                            <path d="m19.07 4.93-1.41 1.41"></path>
+                        </svg>
+                        <!-- Icon Moon (Mode Terang -> klik untuk Gelap) -->
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+
+                    <a href="#contact" class="btn-touch">
+                        <span>Get in Touch</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+
+                    <button class="btn-icon" id="mobile-toggle" type="button" aria-label="Toggle mobile menu"
+                        aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="fa-solid fa-bars" id="mobile-icon"></i>
+                    </button>
+                </div>
             </div>
-        </nav>
+        </div>
 
-        <nav class="lang">
-            <a href="#" class="active">EN</a>
-            <a href="id-index.html">ID</a>
-        </nav>
-
-        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-nav-menu" id="mobile-menu" aria-label="Mobile Navigation">
+            <div class="mobile-menu-links">
+                <a href="#home" class="nav-link" data-i18n="nav.home">Home</a>
+                <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+                <a href="#achievements" class="nav-link" data-i18n="nav.achievements">Achievements</a>
+                <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
+                <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
+                <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+                <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+            </div>
+            <div class="mobile-menu-footer">
+                <div class="lang-switch" role="group" aria-label="Language selection">
+                    <a href="#" class="active" data-lang="en">EN</a>
+                    <a href="#" data-lang="id">ID</a>
+                </div>
+                <a href="#contact" class="btn-touch mobile-cta">
+                    <span>Get in Touch</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!--- HOME SECTION DESIGN -->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Howdy Strangers!</h3>
-            <h1>I'm Maliq Rizqi Ananda</h1>
-            <h3>And I'm a <span class="multiple-text"></span></h3>
-            <p>"I craft beautiful, responsive websites that bring ideas to life. With a keen eye for design and clean
-                code, I create digital experiences that users love and businesses trust."</p>
-            <div class="social-media">
-                <a href="https://www.linkedin.com/in/maliq-rizqi-ananda-84a82038a" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/mxl1qr" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://g.dev/malriz" target="_blank"><i class="fa-brands fa-google"></i></a>
-            </div>
-            <a href="content/CV - SISWA MALIQ RIZQI ANANDA.pdf" class="btn">Download CV</a>
-        </div>
+    <main id="main">
+        <!-- ============================================================
+             2. HERO SECTION (Typed Animation INSIDE Terminal)
+             ============================================================ -->
+        <section id="home">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="dot"></span>
+                        <span data-i18n="home.badge">Open to opportunities</span>
+                    </div>
 
-        <div class="home-img">
-            <img src="content/images/upscalemedia-transformed.png" alt="">
-        </div>
-    </section>
+                    <h1>
+                        <span class="accent-name">Maliq</span> Rizqi Ananda
+                    </h1>
 
-    <!--- ABOUT SECTION DESIGN -->
-    <section class="about" id="about">
-        <div class="about-img">
-            <div class="circle">
-                <img src="content/images/2salam-literasi.png" alt="img">
-            </div>
-        </div>
+                    <!-- Stable Subtitle on the left (No jitter!) -->
+                    <div class="hero-subtitle">
+                        <span data-i18n="about.role">Frontend Developer &amp; Cybersecurity Enthusiast</span>
+                    </div>
 
-        <div class="about-content">
-            <h2 class="heading">ABOUT <span>Me</span></h2>
-            <h3>Frontend Developer</h3>
-            <p><b>Hi, I'm Maliq Rizqi Ananda</b> — a <span id="dynamic-age">16</span>-year-old Software Engineering
-                student from Jakarta, Indonesia,
-                passionate about crafting beautiful and responsive websites that provide exceptional user experiences.
-                As part of my studies, I’ve been exploring modern web technologies and design principles, aiming to
-                transform creative ideas into clean, functional, and intuitive interfaces. Beyond web development, I’m
-                also deeply interested in the world of Cybersecurity, especially in tackling various cybersecurity
-                challenges to sharpen my problem-solving and analytical skills.</p>
-            <!-- <a href="#" class="btn">Read More</a> -->
+                    <p class="hero-bio" data-i18n="home.desc">
+                        "I build websites that actually look good and work even better — blending clean code with a
+                        sharp eye for design to create experiences people enjoy using."
+                    </p>
 
-            <div class="tools-container">
-                <h4>Tools that I use</h4>
-                <div class="tools-grid">
-                    <div class="tool-item">
-                        <i class="fa-brands fa-square-figma"></i>
-                        <span>Figma</span>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn primary">
+                            <span>Explore Projects</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <a href="content/CV - SISWA MALIQ RIZQI ANANDA.pdf" class="btn outline" download>
+                            <span data-i18n="home.cta.cv">Download CV</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
+                        </a>
                     </div>
-                    <div class="tool-item">
-                        <i class="fas fa-code"></i>
-                        <span>VS Code</span>
+
+                    <div class="hero-socials">
+                        <a href="https://www.linkedin.com/in/maliq-rizqi-ananda-84a82038a" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/mxl1qr" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://g.dev/malriz" target="_blank" rel="noopener noreferrer"
+                            aria-label="Google Developer Profile"><i class="fa-brands fa-google"></i></a>
                     </div>
-                    <div class="tool-item">
-                        <i class="fas fa-database"></i>
-                        <!--<svg fill="#0E3149" width="64px" height="64px" viewBox="0 0 24.00 24.00" role="img" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12.843.979c-2.12-.096-3.477 1.439-3.477 1.439C2.52 2.5.791 8.429.75 8.552l-.248.74c-2.268 8.78 3.889 12.22 3.889 12.22.188.091.375-.066.375-.066.5-.31.252-.53.252-.53-1.43-1.742-1.595-5.864-1.596-5.899-.64-.532-1.248-1.318-1.111-2.342 0 0 .084-.51.584-.197 0 0 1.186.644 2.123.83-.001 0 .476.043.5.177 0 0 .374 1.752-.78 2.32.745.437 1.465.85 1.465.85.124 1.263.81 5.32.81 5.32.064.797.906.954.906.954.483.172 4.12.062 4.12.062 1.014-.044 1.062-.953 1.062-.953.015-.545.03-3.62.03-3.62.096-.575.766-.5.766-.5.703-.03.688.454.688.454-.017.515.045 3.496.045 3.496.03.858.781 1.125.781 1.125.488 0 .828-.004 1.365 0 .252.002 1.473 0 1.473 0 .55-.307 1.377-.969 1.377-.969 5.868-4.91 4.135-11.9 4.135-11.9C22.93 5.88 17.792 5.1 17.792 5.1c-.582-1.811-1.643-2.682-1.643-2.682-1.222-1.015-2.343-1.396-3.306-1.44zm5.006 4.273s1.845 3.08-1.727 7.86c.001.001-2.94 4.116-8.232 1.223 1.084.523 5.536 2.312 8.375-1.98 0 0 2.632-3.437 1.584-7.103zM6.703 8.868s1.296.036 1.341 1.82c0 0-1.02-2.668-3.271-.2 0 0 .404-1.729 1.93-1.62z"></path></g></svg>-->
-                        <span>Laragon</span>
+                </div>
+
+                <!-- Right: Kali Terminal with Typewriter INSIDE (psr354 style) -->
+                <div class="hero-terminal-wrapper">
+                    <div class="terminal-card">
+                        <div class="terminal-header-bar">
+                            <div class="terminal-dots">
+                                <span class="red"></span>
+                                <span class="yellow"></span>
+                                <span class="green"></span>
+                            </div>
+                            <span class="terminal-title-text">malqi@kali: ~</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="cmd-line">
+                                <span class="term-user">malqi@kali</span><span class="term-sep">:</span><span
+                                    class="term-path">~</span><span class="term-sep">$</span> <span
+                                    class="term-cmd">whoami</span>
+                            </div>
+                            <!-- Typewriter runs right here inside the terminal! -->
+                            <div class="term-out typing-out" aria-live="polite">
+                                <span id="typed3"></span>
+                            </div>
+
+                            <div class="cmd-line">
+                                <span class="term-user">malqi@kali</span><span class="term-sep">:</span><span
+                                    class="term-path">~</span><span class="term-sep">$</span> <span class="term-cmd">cat
+                                    focus.txt</span>
+                            </div>
+                            <div class="term-out focus-list">
+                                <span>Web Development &amp; Modern UI</span>
+                                <span>Cybersecurity &amp; CTF Explorer</span>
+                                <span>UI/UX &amp; Interactive Design</span>
+                            </div>
+
+                            <div class="cmd-line">
+                                <span class="term-user">malqi@kali</span><span class="term-sep">:</span><span
+                                    class="term-path">~</span><span class="term-sep">$</span> <span
+                                    class="term-cmd">echo $STATUS</span>
+                            </div>
+                            <div class="term-out term-status">
+                                <span class="status-indicator"></span> Ready for new challenges &amp; collaborations.
+                            </div>
+                        </div>
                     </div>
-                    <div class="tool-item">
-                        <i class="fab fa-git-alt"></i>
-                        <span>Git</span>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </div>
-                    <div class="tool-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
-                            viewBox="0,0,256,256">
-                            <g fill="#0e3149" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                                style="mix-blend-mode: normal">
-                                <g transform="scale(5.33333,5.33333)">
-                                    <path
-                                        d="M46.125,38.868c-0.192,-0.815 -0.481,-1.618 -0.919,-2.346c-0.871,-1.466 -2.199,-2.585 -3.594,-3.489c-1.409,-0.901 -2.916,-1.624 -4.458,-2.219c-2.953,-1.141 -2.81,-1.103 -4.803,-1.814c-4.416,-1.574 -6.868,-3.914 -7.022,-6.452c-0.074,-1.229 1.126,-5.234 6.074,-4.282c1.175,0.226 2.287,0.543 3.382,1.037c1.009,0.456 3.954,1.884 4.986,3.917v0c0.078,0.897 0.394,1.244 1.656,1.84c0.949,0.448 1.907,0.935 1.993,2.039c0.005,0.06 0.051,0.109 0.131,0.121c0.052,0 0.1,-0.031 0.121,-0.081c0.182,-0.439 0.915,-0.989 1.461,-0.839c0.063,0.016 0.119,-0.009 0.148,-0.061c0.03,-0.052 0.02,-0.116 -0.021,-0.158l-0.863,-0.854c-0.311,-0.31 -0.651,-0.721 -0.939,-1.249c-0.078,-0.142 -0.145,-0.282 -0.204,-0.417c-0.038,-0.094 -0.076,-0.187 -0.114,-0.281c-0.724,-1.895 -2.073,-3.925 -3.465,-5.24c-0.756,-0.727 -1.588,-1.367 -2.475,-1.913c-0.891,-0.538 -1.819,-1.016 -2.833,-1.302l-0.074,0.256c0.947,0.327 1.833,0.849 2.662,1.419c0.828,0.579 1.593,1.243 2.273,1.979c0.971,1.032 1.736,2.23 2.282,3.512l-1.993,-2.477l0.055,0.858l-1.633,-1.841l0.101,0.862l-1.586,-1.279l0.136,0.584c-0.357,-0.236 -3.525,-1.496 -5.106,-2.09c-1.581,-0.594 -4.705,-3.524 -3.804,-7.232c0,0 -1.477,-0.574 -2.535,-0.965c-1.043,-0.376 -2.09,-0.717 -3.14,-1.046c-2.1,-0.658 -4.212,-1.258 -6.335,-1.818c-2.123,-0.557 -4.26,-1.062 -6.409,-1.508c-2.15,-0.441 -4.312,-0.834 -6.5,-1.053l-0.039,0.333c2.153,0.331 4.278,0.833 6.387,1.382c2.108,0.555 4.202,1.166 6.279,1.829c2.076,0.665 4.139,1.37 6.177,2.128c1.018,0.379 2.033,0.769 3.027,1.188c0.211,0.088 0.426,0.18 0.641,0.272c-1.224,-0.241 -2.448,-0.432 -3.673,-0.591c-2.211,-0.281 -4.424,-0.458 -6.639,-0.558c-2.214,-0.1 -4.43,-0.116 -6.642,-0.034c-2.211,0.086 -4.423,0.259 -6.605,0.633l0.043,0.304c2.18,-0.224 4.375,-0.246 6.563,-0.183c2.189,0.067 4.374,0.231 6.547,0.477c2.172,0.246 4.335,0.567 6.469,0.986c1.316,0.261 2.624,0.564 3.903,0.921c-1.011,-0.101 -2.017,-0.127 -3.014,-0.115c-1.977,0.03 -3.926,0.247 -5.848,0.574c-1.922,0.33 -3.818,0.773 -5.675,1.346c-1.851,0.579 -3.681,1.267 -5.361,2.249l0.116,0.208c1.72,-0.828 3.568,-1.358 5.426,-1.779c1.862,-0.414 3.751,-0.698 5.644,-0.868c1.891,-0.168 3.792,-0.224 5.663,-0.101c1.664,0.11 3.317,0.363 4.83,0.849v0c0.065,0.445 0.366,1.346 0.511,1.796v0c-4.255,1.957 -4.794,5.477 -4.446,7.365c0.409,2.214 2.011,3.902 3.904,4.995c1.567,0.891 3.168,1.459 4.726,2.047c1.555,0.583 3.095,1.143 4.467,1.918c1.352,0.747 2.476,1.901 3.391,3.21c1.837,2.638 2.572,5.964 2.792,9.245l0.365,-0.01c0.008,-3.323 -0.47,-6.802 -2.252,-9.812c-0.588,-0.986 -1.314,-1.921 -2.171,-2.733c0.992,0.384 1.961,0.818 2.887,1.333c1.373,0.779 2.667,1.749 3.548,3.051c0.444,0.647 0.755,1.375 0.983,2.133c0.202,0.767 0.295,1.565 0.329,2.371h0.312c0.011,-0.823 -0.035,-1.655 -0.201,-2.477z">
-                                    </path>
-                                </g>
-                            </g>
-                        </svg>
-                        <span>Kali Linux</span>
+
+                    <!-- 3 Stat Cards Below Terminal (from user reference image) -->
+                    <div class="hero-stats-grid" aria-label="Overview statistics">
+                        <div class="hero-stat-box">
+                            <div class="stat-val">12</div>
+                            <div class="stat-lbl" data-i18n="about.stat.cert">Verified Certifications</div>
+                        </div>
+                        <div class="hero-stat-box">
+                            <div class="stat-val">2<span class="accent-plus">+</span></div>
+                            <div class="stat-lbl" data-i18n="about.stat.yrs">Years Coding</div>
+                        </div>
+                        <div class="hero-stat-box">
+                            <div class="stat-val">2</div>
+                            <div class="stat-lbl" data-i18n="about.stat.proj">Featured Projects</div>
+                        </div>
                     </div>
                 </div>
             </div>
-    </section>
+        </section>
 
-    <!--- SKILLS SECTION DESIGN -->
-    <section class="skills" id="skills">
-        <h2 class="heading">My <span>Skills</span></h2>
-        <p>Here are my technical and soft skills that help me create amazing web experiences</p>
-
-        <div class="skills-container">
-            <div class="hard-skills skills-category">
-                <h3>Hard Skills</h3>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>HTML5</span>
-                        <span class="percentage">75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 75%"></div>
-                    </div>
+        <!-- ============================================================
+             3. ABOUT ME SECTION (psr354 Layout + Tools)
+             ============================================================ -->
+        <section id="about">
+            <div class="container">
+                <div class="sec-hdr reveal">
+                    <div class="sec-kicker">01 // Profile</div>
+                    <h2><span data-i18n="about.heading">About</span> <span class="accent"
+                            data-i18n="about.span">Me</span></h2>
+                    <p data-i18n="about.role">Frontend Developer &amp; Cybersecurity Enthusiast</p>
                 </div>
 
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>CSS3</span>
-                        <span class="percentage">60%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 60%"></div>
-                    </div>
-                </div>
+                <div class="about-split reveal">
+                    <div class="about-copy">
+                        <div class="about-kicker-tag">
+                            Web Development <span class="sep">x</span> Cybersecurity
+                        </div>
 
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>C#</span>
-                        <span class="percentage">80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Python</span>
-                        <span class="percentage">35%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 35%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="soft-skills skills-category">
-                <h3>Soft Skills</h3>
-
-                <div class="soft-skills-grid">
-                    <div class="soft-skill-item">
-                        <i class="fas fa-users"></i>
-                        <span>Teamwork</span>
-                    </div>
-
-                    <div class="soft-skill-item">
-                        <i class="fas fa-comments"></i>
-                        <span>Communication</span>
-                    </div>
-
-                    <div class="soft-skill-item">
-                        <i class="fas fa-puzzle-piece"></i>
-                        <span>Problem Solving</span>
-                    </div>
-
-                    <div class="soft-skill-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>Creativity</span>
-                    </div>
-
-                    <div class="soft-skill-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Time Management</span>
-                    </div>
-
-                    <div class="soft-skill-item">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Adaptability</span>
-                    </div>
-
-                    <div class="soft-skill-item">
-                        <i class="fas fa-handshake"></i>
-                        <span>Leadership</span>
-                    </div>
-
-                    <div class="soft-skill-item">
-                        <i class="fas fa-eye"></i>
-                        <span>Attention to Detail</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--- PROJECTS SECTION DESIGN -->
-    <section class="projects" id="projects">
-        <h2 class="heading">My <span>Projects</span></h2>
-        <p>Here are some of my recent projects that showcase my skills and creativity</p>
-
-        <div class="projects-container">
-            <div class="project-card">
-                <div class="project-img2">
-                    <!--<i class="fas fa-globe"></i>-->
-                    <img src="content/images/Screenshot 2025-08-27 080812.png" alt="Solstice Screenshot"
-                        class="page-screenshot">
-                </div>
-                <div class="project-content">
-                    <h3>Personal Portfolio Website</h3>
-                    <p>A modern and responsive portfolio website built with HTML5, CSS3, and JavaScript. Features smooth
-                        animations, blue theme, and responsive design.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Responsive Design</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://mxl1qr.github.io/portofolio-website/" class="project-btn btn-demo"
-                            target="_blank">Live Demo</a>
-                        <a href="https://github.com/mxl1qr/portofolio-website" class="project-btn btn-code"
-                            target="_blank">View Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-img2">
-                    <!--<i class="fas fa-shopping-cart"></i>-->
-                    <img src="content/images/Solstice Page/Short Product List Page - Urban Jogger.png"
-                        alt="Solstice Screenshot" class="project-screenshot">
-                    <img src="content/images/Solstice Page/Short X - 11.png" alt="Solstice Screenshot"
-                        class="project-screenshot">
-                    <img src="content/images/Solstice Page/Product Detail Page - Everyday Oxford-Regular.png"
-                        alt="Solstice Screenshot" class="project-screenshot">
-                    <img src="content/images/Solstice Page/Cart Page.png" alt="Solstice Screenshot"
-                        class="project-screenshot">
-                </div>
-                <div class="project-content">
-                    <h3>E-Commerce App Prototype</h3>
-                    <p>A prototype of an e-commerce app named SOLSTICE built with product showcase, testimonials, and
-                        ratings. Minimalist Design & Fresh Look.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Figma</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://www.figma.com/proto/TD1flSCMyBLS52QxgFn0W5/Solstice?node-id=62-12&t=hHNrb88S6IwEb8N3-1"
-                            class="project-btn btn-demo" target="_blank">Live Demo</a>
-                        <a href="mailto:maliq.rizqi@outlook.co.id?subject=Request%20Template&body=Hi%2C%0A%0ASaya%20butuh%20template%20untuk%20project%20yang%20sedang%20dikerjakan.%20Bisa%20share%20templatenya%3F%0A%0AThanks!"
-                            class="project-btn btn-code" target="_blank">Request Template</a>
-                    </div>
-                </div>
-            </div>
-
-            <!--<div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-calculator"></i>
-                </div>
-                <div class="project-content">
-                    <h3>Calculator App</h3>
-                    <p>A fully functional calculator application built with C# and Windows Forms. Features basic arithmetic operations with a clean and intuitive interface.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">C#</span>
-                        <span class="tech-tag">Windows Forms</span>
-                        <span class="tech-tag">.NET Framework</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-btn btn-demo">Download</a>
-                        <a href="https://github.com/mxl1qr" class="project-btn btn-code">View Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <div class="project-content">
-                    <h3>Cybersecurity Tools Collection</h3>
-                    <p>A collection of Python scripts for basic cybersecurity tasks including network scanning, password strength checking, and basic penetration testing tools.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Kali Linux</span>
-                        <span class="tech-tag">Network Security</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-btn btn-demo">Documentation</a>
-                        <a href="https://github.com/mxl1qr" class="project-btn btn-code">View Code</a>
-                    </div>
-                </div>
-            </div>-->
-        </div>
-    </section>
-
-    <!--- EXPERIENCE SECTION DESIGN -->
-    <section class="experience" id="experience">
-        <h2 class="heading">My <span>Experience</span></h2>
-        <p>My educational background and professional journey in software development</p>
-
-        <div class="experience-container">
-            <div class="education">
-                <h3>Education</h3>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">2024 - Present</div>
-                    <div class="timeline-title">Software Engineering</div>
-                    <div class="timeline-subtitle">SMK Negeri 40 Jakarta</div>
-                    <div class="timeline-description">
-                        Currently studying Software Engineering with focus on web development and database management.
-                        Learning programming languages including C#, HTML, CSS, and JavaScript.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">2021 - 2024</div>
-                    <div class="timeline-title">Junior High School</div>
-                    <div class="timeline-subtitle">SMP Muhammadiyah 31 Jakarta</div>
-                    <div class="timeline-description">
-                        Completed junior high school education with excellent grades. Developed interest in technology
-                        and computer science during this period.
-                    </div>
-                </div>
-
-                <!-- Certifications moved to its own container below -->
-            </div>
-
-            <div class="work-experience">
-                <h3>Experience</h3>
-
-                <!--<div class="timeline-item">
-                    <div class="timeline-date">2024 - Present</div>
-                    <div class="timeline-title">Freelance Web Developer</div>
-                    <div class="timeline-subtitle">Self-Employed</div>
-                    <div class="timeline-description">
-                        Working on small web development projects for local businesses and personal clients. Creating responsive websites, landing pages, and basic web applications using HTML, CSS, and JavaScript.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-title">Web Development Intern</div>
-                    <div class="timeline-subtitle">Local Tech Startup</div>
-                    <div class="timeline-description">
-                        Completed a 3-month internship focusing on frontend development. Assisted in building user interfaces, fixing bugs, and implementing responsive design features.
-                    </div>
-                </div>-->
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb - Apr 2025</div>
-                    <div class="timeline-title">Student Projects</div>
-                    <div class="timeline-subtitle">SMK Negeri 40 Jakarta</div>
-                    <div class="timeline-description">
-                        Participated in school projects including creating a responsive e-Commerce prototype using
-                        Figma.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Jan - Dec 2025</div>
-                    <div class="timeline-title">Wakil Divisi PSDM (Pemberdayaan Sumber Daya Manusia)</div>
-                    <div class="timeline-subtitle">PIK-R (Pusat Informasi Konseling Remaja) SMK Negeri 40 Jakarta</div>
-                    <div class="timeline-description">
-                        Served as the Human Resources Empowerment (PSDM)
-                        Representative in the School Counseling organization, including
-                        assisting in designing programs for each meeting.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="certifications-container">
-            <h4>Certifications & Courses</h4>
-            <ul class="cert-list">
-                <li class="cert-item"
-                    data-img="content/cert/LabTracer - Supercharge Code Quality and Security AI-Assisted Checks with Antigravity CLI and SDK.png">
-                    Supercharge Code Quality and Security AI-Assisted Checks with Antigravity CLI and SDK - Google
-                    Cloud Jakarta (2026)</li>
-                <li class="cert-item"
-                    data-img="content/cert/LabTracer - Spec-Driven Development with Antigravity CLI — Structured Agent Workflows with Skills and MCP.png">
-                    Spec-Driven Development with Antigravity CLI — Structured Agent Workflows with Skills and MCP - GDG
-                    Cloud Jakarta (2026)</li>
-                <li class="cert-item" data-img="content/cert/TOC 16 - ENGLISH SPEECH PARTICIPANT-1.png">English Speech
-                    Competition - Thamrin Olympiad Cup 16 (2026)</li>
-                <li class="cert-item" data-img="content/cert/ONL2T5VYEP-1.png">Developing Generative AI Applications on
-                    Azure - METC Dicoding (2026)</li>
-                <li class="cert-item" data-img="content/cert/Sertifikat YUNGA-1.png">Piloting & Testing Participant of
-                    Yunga Module "Misi Pahlawan Pertanian" (2025)</li>
-                <li class="cert-item" data-img="content/cert/6.png">Summer Exchange Program - World Classroom (2025)
-                </li>
-                <li class="cert-item"
-                    data-img="content/cert/Sertifikat Kelas Coding Dasar Melalui Platform Hour of Code - AI Ready ASEAN.png">
-                    Hour of Code - AI Ready ASEAN (2025)</li>
-                <li class="cert-item" data-img="content/cert/(Bulk 1) JH - Sertifikat Event_page-0139.jpg">Role Of SOC :
-                    The World Is Under Attack! Are We Ready? - Jadi Hacker (2025)</li>
-                <li class="cert-item" data-img="content/cert/JH - Sertifikat Event Born To Defend_43-43.png">Born To
-                    Defend - Jadi Hacker (2025)</li>
-                <li class="cert-item" data-img="content/cert/6.png">Samsung Innovation Campus Batch 6 Logic Test -
-                    Hacktiv8 (2024)</li>
-                <li class="cert-item"
-                    data-img="content/cert/Sertifikat Virtual Bootcamp Batch 1 Digital Business and Cyber Security MALIQ RIZQI ANANDA.png">
-                    Virtual Bootcamp Batch 1 Digital Business and Cyber Security - UNSIA x UNAS (2024)</li>
-            </ul>
-        </div>
-    </section>
-
-    <!--- CONTACT SECTION DESIGN -->
-    <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me</span></h2>
-        <p>Let's work together! Get in touch for collaborations or just to say hello</p>
-
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Get In Touch</h3>
-
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Address</h4>
-                        <p>Jakarta, Indonesia</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>am.rizqi51@gmail.com</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Phone</h4>
-                        <p>+62 858-9013-0117</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <div>
-                        <h4>LinkedIn</h4>
-                        <p><a
-                                href="https://www.linkedin.com/in/maliq-rizqi-ananda-84a82038a">linkedin.com/in/maliq-rizqi-ananda-84a82038a</a>
+                        <p class="about-main-text" data-i18n="about.bio">
+                            Hey, I'm <strong>Maliq Rizqi Ananda</strong> — a <span id="dynamic-age">17</span>-year-old
+                            Software Engineering student from Jakarta. I care a lot about building websites that are
+                            both beautiful and functional. At SMK Negeri 40 Jakarta, I've been diving deep into modern
+                            web tech and design principles, turning creative ideas into clean, intuitive interfaces. On
+                            top of that, I'm genuinely hooked on Cybersecurity — especially CTF challenges and security
+                            audits that sharpen my analytical thinking.
                         </p>
+
+                        <div class="tools-title-sub" data-i18n="about.tools.lbl">// Tools I Work With</div>
+                        <div class="tools-chips-wrap">
+                            <span class="tool-chip"><i class="fa-brands fa-figma"></i> Figma</span>
+                            <span class="tool-chip"><i class="fa-solid fa-code"></i> VS Code</span>
+                            <span class="tool-chip"><i class="fa-solid fa-database"></i> Laragon</span>
+                            <span class="tool-chip"><i class="fa-brands fa-git-alt"></i> Git</span>
+                            <span class="tool-chip"><i class="fa-brands fa-github"></i> GitHub</span>
+                            <span class="tool-chip"><i class="fa-brands fa-linux"></i> Kali Linux</span>
+                        </div>
+                    </div>
+
+                    <div class="about-image-card">
+                        <img src="content/images/2salam-literasi.png" alt="Maliq Rizqi Ananda portrait at school event"
+                            loading="lazy">
+                        <div class="about-image-caption">
+                            <span>maliq_profile.png</span>
+                            <span>SMKN 40 JKT</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="contact-form">
-                <h3>Send Message</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+        <!-- ============================================================
+             4. ACHIEVEMENTS & COMPETITIONS (Compact Capsule Grid 3x4 / 4x3)
+             ============================================================ -->
+        <section id="achievements">
+            <div class="container">
+                <div class="sec-hdr-row reveal">
+                    <div class="sec-hdr">
+                        <div class="sec-kicker">02 // Recognition</div>
+                        <h2>Achievements &amp; <span class="accent">Competitions</span></h2>
+                        <p>Certificates, competitions, and programs I have completed</p>
                     </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="seg-tabs" role="group" aria-label="Filter achievements" data-seg="achieve">
+                        <span class="seg-indicator" aria-hidden="true"></span>
+                        <button class="seg-btn active" type="button" data-filter="all">All<span
+                                class="count">11</span></button>
+                        <button class="seg-btn" type="button" data-filter="competitions">Competitions</button>
+                        <button class="seg-btn" type="button" data-filter="cloud-ai">Cloud &amp; AI</button>
+                        <button class="seg-btn" type="button" data-filter="cyber">Cyber</button>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
+                <!-- Sleek Minimalist Capsule Grid (Compact 3x4 / 4x3) -->
+                <div class="achievements-capsule-grid reveal">
+                    <!-- Google Cloud Jakarta -->
+                    <article class="achieve-capsule highlight" data-category="cloud-ai"
+                        data-img="content/cert/LabTracer - Supercharge Code Quality and Security AI-Assisted Checks with Antigravity CLI and SDK.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">Google Cloud</span>
+                            <span class="achieve-capsule-year">2026</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Supercharge Code Quality &amp; Security with Antigravity CLI
+                        </h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">Google Cloud JKT</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
 
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
+                    <!-- GDG Cloud Jakarta -->
+                    <article class="achieve-capsule highlight" data-category="cloud-ai"
+                        data-img="content/cert/LabTracer - Spec-Driven Development with Antigravity CLI — Structured Agent Workflows with Skills and MCP.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">GDG Cloud</span>
+                            <span class="achieve-capsule-year">2026</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Spec-Driven Development with Antigravity CLI — Skills &amp;
+                            MCP</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">GDG Cloud Jakarta</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
 
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                    <!-- Thamrin Olympiad Cup Speech -->
+                    <article class="achieve-capsule" data-category="competitions"
+                        data-img="content/cert/TOC 16 - ENGLISH SPEECH PARTICIPANT-1.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge speech">Speech Cup</span>
+                            <span class="achieve-capsule-year">2026</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">English Speech Competition — Thamrin Olympiad Cup 16</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">TOC 16 Competition</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- Microsoft Dicoding GenAI -->
+                    <article class="achieve-capsule highlight" data-category="cloud-ai"
+                        data-img="content/cert/ONL2T5VYEP-1.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">Azure GenAI</span>
+                            <span class="achieve-capsule-year">2026</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Developing Generative AI Applications on Azure</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">METC Dicoding</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- Jadi Hacker SOC -->
+                    <article class="achieve-capsule" data-category="cyber"
+                        data-img="content/cert/(Bulk 1) JH - Sertifikat Event_page-0139.jpg">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">Security SOC</span>
+                            <span class="achieve-capsule-year">2025</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Role Of SOC: The World Is Under Attack! Are We Ready?</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">Jadi Hacker</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- Jadi Hacker Born to Defend -->
+                    <article class="achieve-capsule" data-category="cyber"
+                        data-img="content/cert/JH - Sertifikat Event Born To Defend_43-43.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">Defensive</span>
+                            <span class="achieve-capsule-year">2025</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Born To Defend — Cybersecurity Event</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">Jadi Hacker</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- UNSIA x UNAS Virtual Bootcamp -->
+                    <article class="achieve-capsule" data-category="cyber"
+                        data-img="content/cert/Sertifikat Virtual Bootcamp Batch 1 Digital Business and Cyber Security MALIQ RIZQI ANANDA.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">Bootcamp</span>
+                            <span class="achieve-capsule-year">2024</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Digital Business and Cyber Security Virtual Bootcamp</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">UNSIA x UNAS</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- Samsung Innovation Campus -->
+                    <article class="achieve-capsule" data-category="competitions" data-img="content/cert/6.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">Logic Test</span>
+                            <span class="achieve-capsule-year">2024</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Samsung Innovation Campus Batch 6 Logic Test</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">Hacktiv8</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- AI Ready ASEAN Hour of Code -->
+                    <article class="achieve-capsule" data-category="cloud-ai"
+                        data-img="content/cert/Sertifikat Kelas Coding Dasar Melalui Platform Hour of Code - AI Ready ASEAN.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">Coding &amp; AI</span>
+                            <span class="achieve-capsule-year">2025</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Hour of Code — AI Ready ASEAN Coding Basics</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">AI Ready ASEAN</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- YUNGA Agriculture Hero -->
+                    <article class="achieve-capsule" data-category="competitions"
+                        data-img="content/cert/Sertifikat YUNGA-1.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">Pilot Test</span>
+                            <span class="achieve-capsule-year">2025</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Yunga Module "Misi Pahlawan Pertanian" Pilot Tester</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">YUNGA</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- World Classroom Summer Exchange -->
+                    <article class="achieve-capsule" data-category="competitions" data-img="content/cert/6.png">
+                        <div class="achieve-capsule-top">
+                            <span class="achieve-pill-badge">Exchange</span>
+                            <span class="achieve-capsule-year">2025</span>
+                        </div>
+                        <h3 class="achieve-capsule-title">Summer Exchange Program — World Classroom</h3>
+                        <div class="achieve-capsule-bottom">
+                            <span class="achieve-capsule-issuer">World Classroom</span>
+                            <span class="achieve-capsule-btn">View Cert <i
+                                    class="fa-solid fa-arrow-up-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- 12th slot: completes the 4x3 / 3x4 / 2x6 matrix -->
+                    <a class="achieve-capsule cta" data-category="all-only"
+                        href="https://www.linkedin.com/in/maliq-rizqi-ananda-84a82038a" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <strong>More on LinkedIn</strong>
+                        <span>Full credential history &rarr;</span>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!--- FOOTER DESIGN -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-text">
-                <p>&copy; <span id="current-year">2025</span> Maliq Rizqi Ananda. All rights reserved.</p>
+        <!-- ============================================================
+             5. EXPERIENCE SECTION (With Logos & Details from psr354)
+             ============================================================ -->
+        <section id="experience">
+            <div class="container">
+                <div class="sec-hdr reveal">
+                    <div class="sec-kicker">03 // Journey</div>
+                    <h2><span data-i18n="exp.heading">My</span> <span class="accent" data-i18n="exp.span">Journey</span>
+                    </h2>
+                    <p data-i18n="exp.sub">Education, leadership roles, and hands-on creative internships</p>
+                </div>
+
+                <div class="experience-list reveal">
+                    <!-- 1. SMKN 40 Jakarta (Education) -->
+                    <article class="exp-card">
+                        <div class="exp-head">
+                            <div class="exp-org">
+                                <div class="exp-logo-frame">
+                                    <img src="content/images/Logo_SMK_Negeri_40_Jakarta.png"
+                                        alt="Logo SMK Negeri 40 Jakarta" loading="lazy">
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-type-badge" data-i18n="exp.edu">Education</span>
+                                    <h3>SMK Negeri 40 Jakarta</h3>
+                                    <div class="exp-role">Software Engineering (RPL)</div>
+                                </div>
+                            </div>
+                            <span class="exp-period">2024 — 2027</span>
+                        </div>
+
+                        <p class="exp-desc">
+                            Studying software engineering with a primary focus on frontend web development, database
+                            management systems, and programming fundamentals with C#, HTML5, CSS3, and JavaScript.
+                        </p>
+
+                        <div class="exp-tags">
+                            <span class="exp-tag">Software Engineering</span>
+                            <span class="exp-tag">Frontend Web Dev</span>
+                            <span class="exp-tag">Databases</span>
+                            <span class="exp-tag">C# &amp; .NET</span>
+                        </div>
+
+                        <details class="exp-details">
+                            <summary>Curriculum &amp; Academic Highlights</summary>
+                            <div class="exp-details-content">
+                                <ul>
+                                    <li><strong>Web Development:</strong> Crafting responsive websites with modern
+                                        layout techniques (CSS Flexbox, Grid) and interactive JavaScript DOM
+                                        manipulation.</li>
+                                    <li><strong>Database Engineering:</strong> Designing relational database schemas and
+                                        executing structured SQL queries.</li>
+                                    <li><strong>Software Architecture:</strong> Writing clean, maintainable logic using
+                                        object-oriented principles in C#.</li>
+                                    <li><strong>Collaborative Projects:</strong> Leading UI/UX design sprints and
+                                        participating in technical team assignments.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <!-- 2. Sanggar Ananda Kawula Muda (Internship) -->
+                    <article class="exp-card">
+                        <div class="exp-head">
+                            <div class="exp-org">
+                                <div class="exp-logo-frame">
+                                    <i class="fa-solid fa-clapperboard logo-fallback-icon"></i>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-type-badge">Internship</span>
+                                    <h3>Sanggar Ananda Kawula Muda</h3>
+                                    <div class="exp-role">Creative Production &amp; Multimedia Intern</div>
+                                </div>
+                            </div>
+                            <span class="exp-period">Jul — Sep 2026</span>
+                        </div>
+
+                        <p class="exp-desc" data-i18n="work1.desc">
+                            Got hands-on with design thinking, videography, video editing, and brand identity — a solid
+                            creative crash course blending storytelling with digital media creation.
+                        </p>
+
+                        <div class="exp-tags">
+                            <span class="exp-tag">Design Thinking</span>
+                            <span class="exp-tag">Videography</span>
+                            <span class="exp-tag">Video Editing</span>
+                            <span class="exp-tag">Brand Identity</span>
+                        </div>
+
+                        <details class="exp-details">
+                            <summary>Responsibilities &amp; Key Learnings</summary>
+                            <div class="exp-details-content">
+                                <ul>
+                                    <li><strong>Creative Direction:</strong> Brainstormed and storyboarded visual
+                                        concepts for organization promotional materials.</li>
+                                    <li><strong>Production &amp; Editing:</strong> Recorded footage and performed video
+                                        post-production editing for public-facing assets.</li>
+                                    <li><strong>Brand Consistency:</strong> Ensured typography, visual themes, and asset
+                                        styling adhered to brand guidelines.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <!-- 3. PIK-R SMKN 40 Jakarta (Organization) -->
+                    <article class="exp-card">
+                        <div class="exp-head">
+                            <div class="exp-org">
+                                <div class="exp-logo-frame">
+                                    <i class="fa-solid fa-users-rays logo-fallback-icon"></i>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-type-badge">Organization</span>
+                                    <h3>PIK-R SMK Negeri 40 Jakarta</h3>
+                                    <div class="exp-role" data-i18n="work3.title">Wakil Divisi PSDM (Pemberdayaan Sumber
+                                        Daya Manusia)</div>
+                                </div>
+                            </div>
+                            <span class="exp-period">Jan — Dec 2025</span>
+                        </div>
+
+                        <p class="exp-desc" data-i18n="work3.desc">
+                            Served as Human Resources Empowerment Representative in the school counseling organization,
+                            co-designing session agendas and coordinating peer empowerment programs.
+                        </p>
+
+                        <div class="exp-tags">
+                            <span class="exp-tag">Leadership</span>
+                            <span class="exp-tag">Human Resources</span>
+                            <span class="exp-tag">Program Coordination</span>
+                            <span class="exp-tag">Public Speaking</span>
+                        </div>
+
+                        <details class="exp-details">
+                            <summary>Key Contributions</summary>
+                            <div class="exp-details-content">
+                                <ul>
+                                    <li><strong>Agenda Design:</strong> Formulated workshop topics and interactive group
+                                        activities for regular member counseling assemblies.</li>
+                                    <li><strong>Team Empowerment:</strong> Mentored junior members, facilitated team
+                                        syncs, and documented organizational output.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <!-- 4. SMP Muhammadiyah 31 Jakarta (Education) -->
+                    <article class="exp-card">
+                        <div class="exp-head">
+                            <div class="exp-org">
+                                <div class="exp-logo-frame">
+                                    <i class="fa-solid fa-graduation-cap logo-fallback-icon"></i>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-type-badge" data-i18n="exp.edu">Education</span>
+                                    <h3>SMP Muhammadiyah 31 Jakarta</h3>
+                                    <div class="exp-role" data-i18n="edu2.title">Junior High School</div>
+                                </div>
+                            </div>
+                            <span class="exp-period">2021 — 2024</span>
+                        </div>
+
+                        <p class="exp-desc" data-i18n="edu2.desc">
+                            Graduated with excellent grades. This is where my curiosity for technology, logic puzzles,
+                            and computers initially sparked.
+                        </p>
+                    </article>
+                </div>
             </div>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/maliq-rizqi-ananda-84a82038a" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/mxl1qr" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </section>
+
+        <!-- ============================================================
+             6. PROJECTS & LABS (Modeled after localhost:5173 - 3D Tilt)
+             ============================================================ -->
+        <section id="projects">
+            <div class="container">
+                <div class="sec-hdr-row reveal">
+                    <div class="sec-hdr">
+                        <div class="sec-kicker">04 // Selected Works</div>
+                        <h2>Featured <span class="accent">Projects</span></h2>
+                        <p data-i18n="projects.sub">A curated collection of web applications, UI/UX prototypes, and
+                            experiments</p>
+                    </div>
+                    <div class="seg-tabs" role="group" aria-label="Filter projects" data-seg="proj">
+                        <span class="seg-indicator" aria-hidden="true"></span>
+                        <button class="seg-btn active" type="button" data-proj-filter="all">All Projects</button>
+                        <button class="seg-btn" type="button" data-proj-filter="web">Web Apps</button>
+                        <button class="seg-btn" type="button" data-proj-filter="ui-ux">UI/UX</button>
+                    </div>
+                </div>
+
+                <!-- 3D Interactive Project Cards Grid -->
+                <div class="projects-3d-grid reveal">
+                    <!-- Project 001: Personal Portfolio -->
+                    <div class="tilt-card-wrapper" data-category="web">
+                        <article class="tilt-card" data-tilt>
+                            <div class="tilt-glare"></div>
+
+                            <div>
+                                <div class="project-preview-frame">
+                                    <span class="project-featured-badge">Featured</span>
+                                    <img src="content/images/Screenshot 2025-08-27 080812.png"
+                                        alt="Personal portfolio website preview" loading="lazy">
+                                    <div class="preview-hover-overlay">
+                                        <span class="preview-hover-btn">
+                                            <i class="fa-solid fa-eye text-blue"></i> Expanded Preview
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="project-info-wrap">
+                                    <span class="project-num-tag">PROJECT_001 // WEB APP</span>
+                                    <h3 data-i18n="proj1.title">
+                                        Personal Portfolio Website
+                                        <i class="fa-solid fa-arrow-up-right"></i>
+                                    </h3>
+                                    <p class="project-summary" data-i18n="proj1.desc">
+                                        A modern, responsive portfolio built with HTML5, CSS3 &amp; JavaScript. Features
+                                        smooth animations, dark mode, floating island navbar, and internationalization.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="project-tech-tags">
+                                    <span class="project-tech-tag">HTML5</span>
+                                    <span class="project-tech-tag">CSS3</span>
+                                    <span class="project-tech-tag">JavaScript</span>
+                                    <span class="project-tech-tag">Responsive</span>
+                                    <span class="project-tech-tag">i18n</span>
+                                </div>
+                                <div class="project-actions-row">
+                                    <a href="https://mxl1qr.github.io/portofolio-website/" class="primary-demo"
+                                        target="_blank" rel="noopener noreferrer" data-i18n="proj.demo">Live Demo</a>
+                                    <a href="https://github.com/mxl1qr/portofolio-website" class="secondary-code"
+                                        target="_blank" rel="noopener noreferrer" data-i18n="proj.code">View Code</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Project 002: E-Commerce App Prototype - SOLSTICE -->
+                    <div class="tilt-card-wrapper" data-category="ui-ux">
+                        <article class="tilt-card" data-tilt>
+                            <div class="tilt-glare"></div>
+
+                            <div>
+                                <div class="project-preview-frame multi-preview">
+                                    <span class="project-featured-badge">Featured</span>
+                                    <img src="content/images/Solstice Page/Short Product List Page - Urban Jogger.png"
+                                        alt="SOLSTICE product listing screen" loading="lazy">
+                                    <img src="content/images/Solstice Page/Short X - 11.png" alt="SOLSTICE landing hero"
+                                        loading="lazy">
+                                    <img src="content/images/Solstice Page/Product Detail Page - Everyday Oxford-Regular.png"
+                                        alt="SOLSTICE product detail view" loading="lazy">
+                                    <div class="preview-hover-overlay">
+                                        <span class="preview-hover-btn">
+                                            <i class="fa-solid fa-eye text-blue"></i> View Screens
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="project-info-wrap">
+                                    <span class="project-num-tag">PROJECT_002 // PROTOTYPE</span>
+                                    <h3 data-i18n="proj2.title">
+                                        E-Commerce Prototype — SOLSTICE
+                                        <i class="fa-solid fa-arrow-up-right"></i>
+                                    </h3>
+                                    <p class="project-summary" data-i18n="proj2.desc">
+                                        An interactive prototype of an e-commerce clothing application featuring
+                                        comprehensive product cataloging, cart checkout flow, and minimalist
+                                        contemporary branding.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="project-tech-tags">
+                                    <span class="project-tech-tag">Figma</span>
+                                    <span class="project-tech-tag">UI/UX Design</span>
+                                    <span class="project-tech-tag">Design System</span>
+                                    <span class="project-tech-tag">Wireframing</span>
+                                </div>
+                                <div class="project-actions-row">
+                                    <a href="https://www.figma.com/proto/TD1flSCMyBLS52QxgFn0W5/Solstice?node-id=62-12&t=hHNrb88S6IwEb8N3-1"
+                                        class="primary-demo" target="_blank" rel="noopener noreferrer"
+                                        data-i18n="proj.demo">Figma Prototype</a>
+                                    <a href="mailto:am.rizqi51@gmail.com?subject=Request%20SOLSTICE%20Template"
+                                        class="secondary-code" data-i18n="proj.template">Request Template</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Explore More on GitHub (from localhost:5173) -->
+                <div class="explore-more-bar reveal">
+                    <a href="https://github.com/mxl1qr" target="_blank" rel="noopener noreferrer"
+                        class="explore-more-btn">
+                        <i class="fa-regular fa-folder-open"></i>
+                        <span>Explore more repositories on GitHub</span>
+                        <i class="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             7. SKILLS & TOOLS SECTION
+             ============================================================ -->
+        <section id="skills">
+            <div class="container">
+                <div class="sec-hdr reveal">
+                    <div class="sec-kicker">05 // Capabilities</div>
+                    <h2><span data-i18n="skills.heading">My</span> <span class="accent"
+                            data-i18n="skills.span">Skills</span></h2>
+                    <p data-i18n="skills.sub">A balanced mix of technical capabilities and collaborative soft skills</p>
+                </div>
+
+                <div class="skills-two-col reveal">
+                    <div class="skills-card">
+                        <h3 data-i18n="skills.hard">Hard Skills</h3>
+                        <div class="hard-skill-row">
+                            <span>HTML5</span>
+                            <span class="skill-dots" role="img" aria-label="4 of 5"><i class="on"></i><i
+                                    class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+                        </div>
+                        <div class="hard-skill-row">
+                            <span>CSS3 &amp; Modern Layouts</span>
+                            <span class="skill-dots" role="img" aria-label="3 of 5"><i class="on"></i><i
+                                    class="on"></i><i class="on"></i><i></i><i></i></span>
+                        </div>
+                        <div class="hard-skill-row">
+                            <span>JavaScript (ES6+)</span>
+                            <span class="skill-dots" role="img" aria-label="3 of 5"><i class="on"></i><i
+                                    class="on"></i><i class="on"></i><i></i><i></i></span>
+                        </div>
+                        <div class="hard-skill-row">
+                            <span>C# &amp; .NET</span>
+                            <span class="skill-dots" role="img" aria-label="4 of 5"><i class="on"></i><i
+                                    class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+                        </div>
+                        <div class="hard-skill-row">
+                            <span>Python Basics</span>
+                            <span class="skill-dots" role="img" aria-label="2 of 5"><i class="on"></i><i
+                                    class="on"></i><i></i><i></i><i></i></span>
+                        </div>
+                    </div>
+
+                    <div class="skills-card">
+                        <h3 data-i18n="skills.soft">Soft Skills</h3>
+                        <div class="soft-skills-grid">
+                            <div class="soft-pill"><i class="fa-solid fa-users"></i> <span
+                                    data-i18n="soft.teamwork">Teamwork</span></div>
+                            <div class="soft-pill"><i class="fa-solid fa-comments"></i> <span
+                                    data-i18n="soft.comm">Communication</span></div>
+                            <div class="soft-pill"><i class="fa-solid fa-puzzle-piece"></i> <span
+                                    data-i18n="soft.problem">Problem Solving</span></div>
+                            <div class="soft-pill"><i class="fa-solid fa-lightbulb"></i> <span
+                                    data-i18n="soft.creative">Creativity</span></div>
+                            <div class="soft-pill"><i class="fa-solid fa-clock"></i> <span data-i18n="soft.time">Time
+                                    Management</span></div>
+                            <div class="soft-pill"><i class="fa-solid fa-eye"></i> <span
+                                    data-i18n="soft.detail">Attention to Detail</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             8. CONTACT SECTION
+             ============================================================ -->
+        <section id="contact">
+            <div class="container">
+                <div class="sec-hdr reveal">
+                    <div class="sec-kicker">06 // Connect</div>
+                    <h2><span data-i18n="contact.heading">Get In</span> <span class="accent"
+                            data-i18n="contact.span">Touch</span></h2>
+                    <p data-i18n="contact.sub">Got a project idea, question, or want to collaborate? Feel free to reach
+                        out.</p>
+                </div>
+
+                <div class="contact-layout reveal">
+                    <div class="contact-panel">
+                        <div class="panel-top-bar" data-i18n="contact.getint">Reach Out</div>
+                        <div class="contact-items-list">
+                            <div class="contact-item-row">
+                                <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h4 data-i18n="contact.lbl.addr">Location</h4>
+                                    <p>Jakarta, Indonesia</p>
+                                </div>
+                            </div>
+                            <div class="contact-item-row">
+                                <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
+                                <div>
+                                    <h4 data-i18n="contact.lbl.email">Email</h4>
+                                    <a href="mailto:am.rizqi51@gmail.com">am.rizqi51@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item-row">
+                                <div class="contact-icon-box"><i class="fa-brands fa-github"></i></div>
+                                <div>
+                                    <h4>GitHub</h4>
+                                    <a href="https://github.com/mxl1qr" target="_blank"
+                                        rel="noopener noreferrer">github.com/mxl1qr</a>
+                                </div>
+                            </div>
+                            <div class="contact-item-row">
+                                <div class="contact-icon-box"><i class="fa-brands fa-linkedin-in"></i></div>
+                                <div>
+                                    <h4 data-i18n="contact.lbl.li">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/maliq-rizqi-ananda-84a82038a" target="_blank"
+                                        rel="noopener noreferrer">maliq-rizqi-ananda</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-panel">
+                        <div class="panel-top-bar" data-i18n="contact.sendmsg">Drop Me a Message</div>
+                        <div class="form-wrapper">
+                            <form id="contactForm">
+                                <div class="form-field">
+                                    <label for="name" data-i18n="form.name">Your Name</label>
+                                    <input type="text" id="name" name="name" autocomplete="name" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="email" data-i18n="form.email">Your Email</label>
+                                    <input type="email" id="email" name="email" autocomplete="email" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="subject" data-i18n="form.subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="message" data-i18n="form.message">Message</label>
+                                    <textarea id="message" name="message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn primary" style="width: 100%; justify-content: center;">
+                                    <span data-i18n="form.send">Send Message</span>
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-row">
+            <p>© <span id="current-year"></span> Maliq Rizqi Ananda. <span data-i18n="footer.rights">All rights
+                    reserved.</span></p>
+            <div class="footer-links-row">
+                <a href="https://www.linkedin.com/in/maliq-rizqi-ananda-84a82038a" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/mxl1qr" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Certificate Modal -->
-    <div id="certModal" class="modal">
-        <span class="close-modal"><i class="fas fa-times"></i></span>
-        <img class="modal-content" id="certImage">
-        <div id="certCaption"></div>
+    <!-- CERTIFICATE & SCREENSHOT MODAL -->
+    <div class="modal-overlay" id="certModal" role="dialog" aria-modal="true" aria-label="Preview image">
+        <button class="modal-close-btn" id="certClose" type="button" aria-label="Close modal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img class="modal-image" id="certImg" src="" alt="Preview">
     </div>
 
+    <!-- CLIENT LOGIC & INTERACTIONS -->
+    <script>
+        (function () {
+            var $ = function (sel, root) { return (root || document).querySelector(sel); };
+            var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
+
+            // Year
+            var yearEl = $('#current-year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            // 1. Symmetrical Floating Island Navbar Scroll Handling
+            var header = $('#island-header');
+            var handleNavScroll = function () {
+                if (window.scrollY > 40) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            };
+            handleNavScroll();
+            window.addEventListener('scroll', handleNavScroll, { passive: true });
+
+            // 2. Active Section Spy + sliding indicator (desktop)
+            var sections = $$('main section');
+            var navLinks = $$('.nav-link');
+            var desktopNav = $('#desktop-nav');
+            var navIndicator = $('#nav-indicator');
+            var moveNavIndicator = function () {
+                var active = desktopNav.querySelector('.nav-link.active');
+                if (!active) { navIndicator.style.opacity = '0'; return; }
+                var inset = 10;
+                navIndicator.style.width = (active.offsetWidth - inset * 2) + 'px';
+                navIndicator.style.transform = 'translateX(' + (active.offsetLeft + inset) + 'px)';
+                navIndicator.style.opacity = '1';
+            };
+            var spy = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var id = entry.target.id;
+                        navLinks.forEach(function (link) {
+                            var href = link.getAttribute('href');
+                            link.classList.toggle('active', href === '#' + id);
+                        });
+                        moveNavIndicator();
+                    }
+                });
+            }, { rootMargin: '-40% 0px -50% 0px' });
+            sections.forEach(function (sec) { spy.observe(sec); });
+            window.addEventListener('resize', moveNavIndicator);
+            // Nav width animates on scroll morph -> re-measure after transition
+            header.addEventListener('transitionend', moveNavIndicator);
+
+            // 3. Mobile Navigation Menu Toggle
+            var mobileBtn = $('#mobile-toggle');
+            var mobileMenu = $('#mobile-menu');
+            var mobileIcon = $('#mobile-icon');
+            var setMobileMenu = function (open) {
+                mobileMenu.classList.toggle('open', open);
+                mobileBtn.setAttribute('aria-expanded', String(open));
+                mobileIcon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            };
+            mobileBtn.addEventListener('click', function () {
+                setMobileMenu(!mobileMenu.classList.contains('open'));
+            });
+            $$('.mobile-menu-links a, .mobile-cta', mobileMenu).forEach(function (a) {
+                a.addEventListener('click', function () { setMobileMenu(false); });
+            });
+
+            // 4. Dark Mode Theme Toggle
+            var rootEl = document.documentElement;
+            var themeBtn = $('#theme-toggle');
+            themeBtn.addEventListener('click', function () {
+                var isDark = rootEl.getAttribute('data-theme') === 'dark' || rootEl.classList.contains('dark');
+                if (isDark) {
+                    rootEl.removeAttribute('data-theme');
+                    rootEl.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    rootEl.setAttribute('data-theme', 'dark');
+                    rootEl.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // 5. Scroll Reveal Animation
+            var revealObs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+            $$('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+            // 6 + 7. Segmented filters with sliding pill (localhost:5173 style)
+            var moveSegIndicator = function (group) {
+                var ind = group.querySelector('.seg-indicator');
+                var active = group.querySelector('.seg-btn.active');
+                if (!ind || !active) return;
+                ind.style.width = active.offsetWidth + 'px';
+                ind.style.height = active.offsetHeight + 'px';
+                ind.style.transform = 'translate(' + active.offsetLeft + 'px,' + active.offsetTop + 'px)';
+            };
+            var setupSeg = function (group, attr, items, itemCatAttr) {
+                var btns = $$('.seg-btn', group);
+                btns.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        btns.forEach(function (b) { b.classList.remove('active'); });
+                        btn.classList.add('active');
+                        moveSegIndicator(group);
+                        var filter = btn.getAttribute(attr);
+                        items.forEach(function (item) {
+                            var cat = item.getAttribute(itemCatAttr);
+                            var show = filter === 'all' || cat === filter;
+                            item.classList.toggle('is-hidden', !show);
+                        });
+                    });
+                });
+                moveSegIndicator(group);
+            };
+            var achieveGroup = $('[data-seg="achieve"]');
+            var projGroup = $('[data-seg="proj"]');
+            setupSeg(achieveGroup, 'data-filter', $$('.achieve-capsule'), 'data-category');
+            setupSeg(projGroup, 'data-proj-filter', $$('.tilt-card-wrapper'), 'data-category');
+            window.addEventListener('resize', function () {
+                moveSegIndicator(achieveGroup);
+                moveSegIndicator(projGroup);
+            });
+            // Fonts change button widths after load -> re-measure
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(function () {
+                    moveSegIndicator(achieveGroup);
+                    moveSegIndicator(projGroup);
+                    moveNavIndicator();
+                });
+            }
+
+            // 8. 3D Tilt Card Effect with Glare (localhost:5173 style)
+            $$('[data-tilt]').forEach(function (card) {
+                var glare = card.querySelector('.tilt-glare');
+                card.addEventListener('mousemove', function (e) {
+                    var rect = card.getBoundingClientRect();
+                    var x = e.clientX - rect.left;
+                    var y = e.clientY - rect.top;
+                    var centerX = rect.width / 2;
+                    var centerY = rect.height / 2;
+                    var rotateX = ((y - centerY) / centerY) * -5.5;
+                    var rotateY = ((x - centerX) / centerX) * 5.5;
+
+                    card.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+                    if (glare) {
+                        var px = (x / rect.width) * 100;
+                        var py = (y / rect.height) * 100;
+                        glare.style.setProperty('--glare-x', px + '%');
+                        glare.style.setProperty('--glare-y', py + '%');
+                        glare.style.opacity = '1';
+                    }
+                });
+                card.addEventListener('mouseleave', function () {
+                    card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                    if (glare) glare.style.opacity = '0';
+                });
+            });
+
+            // 9. Certificate / Image Modal (Any capsule click opens its cert!)
+            var modal = $('#certModal');
+            var modalImg = $('#certImg');
+            var modalClose = $('#certClose');
+            var openModal = function (src) {
+                if (!src) return;
+                modalImg.src = src;
+                modal.classList.add('open');
+                modalClose.focus();
+            };
+            var closeModal = function () {
+                modal.classList.remove('open');
+                modalImg.src = '';
+            };
+            $$('article.achieve-capsule').forEach(function (capsule) {
+                capsule.addEventListener('click', function () {
+                    openModal(capsule.getAttribute('data-img'));
+                });
+            });
+            // Open modal on project preview click
+            $$('.preview-hover-overlay').forEach(function (overlay) {
+                overlay.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var frame = overlay.closest('.project-preview-frame');
+                    var img = frame ? frame.querySelector('img') : null;
+                    if (img) openModal(img.src);
+                });
+            });
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                    setMobileMenu(false);
+                }
+            });
+
+            // 10. Contact Form -> mailto fallback
+            $('#contactForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var f = e.target;
+                var body = f.message.value + '\n\n— From: ' + f.name.value + ' (' + f.email.value + ')';
+                window.location.href = 'mailto:am.rizqi51@gmail.com?subject=' +
+                    encodeURIComponent(f.subject.value) +
+                    '&body=' + encodeURIComponent(body);
+            });
+        })();
+    </script>
 </body>
 
 </html>
